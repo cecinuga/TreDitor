@@ -2,7 +2,7 @@ import { Environment, OrbitControls, PerspectiveCamera } from '@react-three/drei
 import Cavaliere from './Cavaliere/Cavaliere';
 export const angleToRadians = (angleInDeg) => (Math.PI / 180) * angleInDeg;
 
-export default function Editor(){
+export default function Scene(){
     const meshPos = [-5,-5,8]
     return(
         <>

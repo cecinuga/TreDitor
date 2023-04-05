@@ -1,0 +1,3 @@
+1)aggiungere due layer al CavaliereLayer
+2)aggiungere i controlli con leva
+3)aggiungere lo store con zustand
