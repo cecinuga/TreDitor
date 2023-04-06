@@ -1,8 +1,6 @@
 import { Html } from "@react-three/drei"
 import { useRef } from "react"
-import { Col, Row } from "react-bootstrap"
-
-export default function CavaliereLayer({position, rotation, scale, htmlPosition, color, source, sourceSize, childrens}){
+export default function CavaliereLayer({position, rotation, scale, htmlPosition, color, image}){
     const frontRef = useRef(null)
 
     return(
@@ -10,7 +8,7 @@ export default function CavaliereLayer({position, rotation, scale, htmlPosition,
             <boxGeometry />
             <meshStandardMaterial color={color}/>
             <Html occlude="raycast" transform className="text-white" center position={htmlPosition}>
-                {/*{childrens.map(child => child)}*/}
+                {<img src={image} width={"10%"} height="100%"></img>}
             </Html>
         </mesh>
     )
