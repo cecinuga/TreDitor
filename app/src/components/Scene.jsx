@@ -27,24 +27,20 @@ export default function Scene(){
             transient:false,
             onChange: (v) => {},
         }, 
-        image: {
-            value: qrcode,
-            transient: false,
-            onChange: (v) => {}
-        },
-        position: {
-            value: {
-                x: 2.5,
-                y: 0.05
-            } ,
-            transient: false,
-            onChange: (v) => {},         
-        },
+        image: folder({
+            image: qrcode,
+            image_position: { x: 0.45,y: -0.55},
+            width:{ value: 25, min: 0, max: 100, step: 1 },
+            height:{ value: 25, min: 0, max: 100, step: 1 },
+        }),
         text: folder({
-            value: 'MenuMal',
-            size: { value: 108, min: 50, max: 300, step: 1 },
+            text: 'MenuMal',
+            text_position: {x:0, y:-0.38},
+            size: { value: 5, min: 5, max: 30, step: 1 },
             text_color: { value: '#fff' },
-            font: { options: fonts }
+            font: { options: fonts },
+            textX: { value: 0, min: 0, max: 360, step: 1 },
+            textY: { value: 0, min: 0, max: 360, step: 1 }            
           }),
         font: { options: fonts }
     }))
@@ -56,24 +52,20 @@ export default function Scene(){
             transient:false,
             onChange: (v) => {},
         }, 
-        image: {
-            value: qrcode,
-            transient: false,
-            onChange: (v) => {}
-        },
-        position: {
-            value: {
-                x: 2.5,
-                y: 0.05
-            } ,
-            transient: false,
-            onChange: (v) => {},         
-        },
+        image: folder({
+            image: qrcode,
+            image_position: { x: 0.45,y: -0.55},
+            width:{ value: 25, min: 0, max: 100, step: 1 },
+            height:{ value: 25, min: 0, max: 100, step: 1 },
+        }),
         text: folder({
-            value: 'MenuMal',
-            size: { value: 108, min: 50, max: 300, step: 1 },
+            text: 'MenuMal',
+            text_position: {value: {x:0, y:-0.38}},
+            size: { value: 5, min: 5, max: 30, step: 1 },
             text_color: { value: '#fff' },
-            font: { options: fonts }
+            font: { options: fonts },
+            textX: { value: 0, min: 0, max: 360, step: 1 },
+            textY: { value: 0, min: 0, max: 360, step: 1 }
           }),
         font: { options: fonts }
     }))
@@ -85,25 +77,20 @@ export default function Scene(){
             transient:false,
             onChange: (v) => {},
         }, 
-        image: {
-            value: qrcode,
-            transient: false,
-            onChange: (v) => {}
-        },
-        position: {
-            value: {
-                x: 2.5,
-                y: 0.05
-            } ,
-            transient: false,
-            onChange: (v) => {},         
-        },
+        image: folder({
+            image: qrcode,
+            image_position: { x: 0.45,y: -0.55},
+            width:{ value: 25, min: 0, max: 100, step: 1 },
+            height:{ value: 25, min: 0, max: 100, step: 1 },
+        }),
         text: folder({
-            value: 'MenuMal',
-            size: { value: 108, min: 50, max: 300, step: 1 },
+            text: '',
+            text_position: {x:0, y:-0.38},
+            size: { value: 5, min: 5, max: 30, step: 1 },
             text_color: { value: '#fff' },
             font: { options: fonts },
-            position: {x: 0, y:0}
+            textX: { value: 0, min: 0, max: 360, step: 1 },
+            textY: { value: 0, min: 0, max: 360, step: 1 }
           }),
         font: { options: fonts }
     }))
@@ -122,27 +109,39 @@ export default function Scene(){
 
                 frontColor={front.color} 
                 frontImage={front.image}
-                frontImagePos={front.position}
-                frontText={front.value}
+                frontImagePos={front.image_position}
+                frontImageWidth={front.width}
+                frontImageHeight={front.height}
+                frontText={front.text}
                 frontTextSize={front.size}
                 frontTextFont={front.font}
                 frontTextColor={front.text_color}
+                frontTextPosition={front.text_position}
+                frontTextRotation={{x: front.textX, y: front.textY}}
 
                 backColor={back.color} 
                 backImage={back.image}
-                backImagePos={back.position}
-                backText={back.value}
+                backImagePos={back.image_position}
+                backImageWidth={back.width}
+                backImageHeight={back.height}
+                backText={back.text}
                 backTextSize={back.size}
                 backTextFont={back.font}
                 backTextColor={back.text_color}
+                backTextPosition={back.text_position}
+                backTextRotation={{x: back.textX, y: back.textY}}
 
                 baseColor={base.color} 
                 baseImage={base.image}
-                baseImagePos={base.position}
-                baseText={base.value}
+                baseImagePos={base.image_position}
+                baseImageWidth={base.width}
+                baseImageHeight={base.height}
+                baseText={base.text}
                 baseTextSize={base.size}
                 baseTextFont={base.font}
                 baseTextColor={base.text_color}
+                baseTextPosition={base.text_position}
+                baseTextRotation={{x: base.textX, y: base.textY}}
             />
         </>
     )
