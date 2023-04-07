@@ -1,7 +1,3 @@
 1) Aggiungere due layer al CavaliereLayer
-3) Aggiungere lo store con zustand
-4) Aggiungere scritta a cavaliere 
-5) Aggiungere logo a cavaliere
-6) Aggiungere i controlli logo e scritta a leva
-7) Cambiare colore alla scritta con leva
 8) Aggiungere componente reset configurazione
+9) Inserire i max e i min per le posizioni di testo e immagine nei controlli

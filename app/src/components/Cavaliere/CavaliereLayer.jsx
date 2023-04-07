@@ -5,7 +5,7 @@ import { createPortal } from "react-dom"
 import { useLoader, useThree } from "@react-three/fiber"
 import {TextureLoader} from "three"
 
-export default function CavaliereLayer({position, rotation, scale, htmlPosition, color, image, text, textSize, textColor, textFont, textPosition, textRotation, imageWidth, imageHeight}){
+export default function CavaliereLayer({position, rotation, scale, htmlPosition, color, image, text, textSize, textColor, textFont, textPosition, textRotation, htmlRotation, htmlScale}){
     const frontRef = useRef(null)
     const { camera, viewport } = useThree() 
     
@@ -16,8 +16,8 @@ export default function CavaliereLayer({position, rotation, scale, htmlPosition,
                 <boxGeometry />
                 <meshStandardMaterial color={color}/>
                <Text fontSize={textSize} color={textColor} rotation={[textRotation[0], angleToRadians(180)-textRotation[1], textRotation[2]]} font={textFont} position={textPosition} scale={[0.02,0.02,0.02]}>{text}</Text>
+                {image?<Image position={htmlPosition} rotation={htmlRotation} url={image} scale={htmlScale} />:''}
             </mesh>
-            <Image position={htmlPosition} url={image} scale={[1,1,1]} width={`${imageWidth}%`} height={`${imageHeight}%`} />
         </group>
     )
 }
