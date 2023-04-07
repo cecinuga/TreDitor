@@ -1,3 +1,6 @@
 1)aggiungere due layer al CavaliereLayer
-2)aggiungere i controlli con leva
 3)aggiungere lo store con zustand
+4)aggiungere scritta a cavaliere 
+5)aggiungere logo a cavaliere
+6)aggiungere i controlli logo e scritta a leva
+7)cambiare colore alla scritta con leva
