@@ -6,3 +6,15 @@
 12) Creare json di configurazione
 13) Inserire Download json di configurazione
 14) Inserire Upload json di configurazione
+15) Centrare le posizione
+16) Creare Layout 
+17) Creare pagina dei layout
+18) Creare salva configurazione
+19) Creare carica configurazione
+20) Attaccare i CavaliereLayer a formare un triangolo
+21) Aggiungere sassolino
+22) Pulsate con SalvaStampa(stirare il cavalierino)
+23) Api da dove prendere i QR Code fornire i due qrcode (Qrcode Standard, Qrcode senza modulo standard)
+24) Il job è il nome del locale
+
+Layout: 
