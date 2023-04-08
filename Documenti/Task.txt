@@ -1,3 +1,8 @@
 1) Aggiungere due layer al CavaliereLayer
 8) Aggiungere componente reset configurazione
 9) Inserire i max e i min per le posizioni di testo e immagine nei controlli
+10) Inserire useDrag sulla mesh del Cavaliere
+11) Inserire Conditionally showing fields
+12) Creare json di configurazione
+13) Inserire Download json di configurazione
+14) Inserire Upload json di configurazione

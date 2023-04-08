@@ -1,7 +1,8 @@
 import { Environment, OrbitControls, PerspectiveCamera } from '@react-three/drei'
 import Cavaliere from './Cavaliere/Cavaliere';
-import { useControls, folder } from 'leva';
+import { useControls, folder, buttonGroup } from 'leva';
 import {fonts} from "./Cavaliere/font"
+import { Button } from 'react-bootstrap';
 
 export default function Scene(){
     const [object, setObject] = useControls("Object", () => ({
@@ -32,9 +33,9 @@ export default function Scene(){
             scale_img: {x: 0.7, y: 0.7, z: 0.7},
        }),
         text: folder({
-            text: 'MenuMal',
+            text: 'Osteria Francescana',
             text_position: {x:0, y:-0.38},
-            size: { value: 5, min: 5, max: 30, step: 1 },
+            size: { value: 4, min: 0, max: 30, step: 1 },
             text_color: { value: '#fff' },
             font: { options: fonts },
             textX: { value: 0, min: 0, max: 360, step: 1 },
@@ -58,7 +59,7 @@ export default function Scene(){
         text: folder({
             text: 'MenuMal',
             text_position: {value: {x:0, y:-0.38}},
-            size: { value: 5, min: 5, max: 30, step: 1 },
+            size: { value: 5, min: 0, max: 30, step: 1 },
             text_color: { value: '#fff' },
             font: { options: fonts },
             textX: { value: 0, min: 0, max: 360, step: 1 },
@@ -82,7 +83,7 @@ export default function Scene(){
         text: folder({
             text: '',
             text_position: {x:0, y:-0.38},
-            size: { value: 5, min: 5, max: 30, step: 1 },
+            size: { value: 5, min: 0, max: 30, step: 1 },
             text_color: { value: '#fff' },
             font: { options: fonts },
             textX: { value: 0, min: 0, max: 360, step: 1 },
@@ -90,6 +91,23 @@ export default function Scene(){
           }),
         font: { options: fonts }
     }))
+
+    const saveConfig = () => {
+        
+    }
+    const resetConfig = () => {
+        
+    }
+
+    useControls({
+        "Azioni": buttonGroup({
+            "Save Config": saveConfig,
+            "Reset Config": resetConfig
+        })
+    })
+
+
+    
 
 
     return( 
