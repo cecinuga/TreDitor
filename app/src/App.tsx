@@ -9,24 +9,27 @@ import DemoPage from './components/DemoPage';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Button } from '@mui/material';
 import Header from './components/Header';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
+import { Api } from './lib/api';
 
 declare const baseUrl: string;
+const queryClient = new QueryClient()
 
-function App() {
+export default function App() {
 
   return (
     <>
         <BrowserRouter basename={typeof baseUrl === "undefined" ? "/" : baseUrl}>
-          <Container fluid>
-            <Header>TreDitor</Header>
-            <Routes>
-              <Route path='/' element={<EditorPage />}></Route>
-              <Route path='/demo' element={<DemoPage />}></Route>
-            </Routes>
-          </Container>
+         <QueryClientProvider client={queryClient}>
+            <Container fluid>
+              <Header>TreDitor</Header>
+              <Routes>
+                <Route path='/' element={<EditorPage />}></Route>
+                <Route path='/demo' element={<DemoPage />}></Route>
+              </Routes>
+            </Container>
+          </QueryClientProvider>
       </BrowserRouter>
     </>
   )
 }
-
-export default App
