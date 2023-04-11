@@ -14,7 +14,7 @@
 20) Attaccare i CavaliereLayer a formare un triangolo
 21) Aggiungere sassolino
 22) Pulsate con SalvaStampa(stirare il cavalierino)
-23) Api da dove prendere i QR Code fornire i due qrcode (Qrcode Standard, Qrcode senza modulo standard)
+23) Api da dove prendere i QR Code fornire i due qrcode (Qrcode Standard, Qrcode senza modulo ordine)
 24) Il job è il nome del locale
 26) Gestire gli errori delle chiamate
 
