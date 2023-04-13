@@ -12,5 +12,18 @@
 18) Creare salva configurazione
 19) Creare carica configurazione
 22) Pulsate con SalvaStampa(stirare il cavalierino)
+23) Ricalibrazione totale assi leva
+24) far decidere con lo switch se il qr è order o noorder
+25) usare font roca
+26) la scritta dietro è Menu
+27) padding bianco intorno al qr border radius 
+28) logo centrale dietro
+29) invertire i fronti
+30) 
 
-Layout: 
+scritte o sono bianche o sono nere in base allo sfondo
+
+
+l'utente modifica il main, il colore di sfondo e le scritte contenuti e scritte colori
+
+sentire lollo per come fare per il cosa succede quando salvi

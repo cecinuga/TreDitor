@@ -35,11 +35,11 @@ export default function Cavaliere({
         frontHtmlScale,
         backHtmlScale,
         frontLogoColor,
-        backTextSopra,
-        backTextSizeSopra,
-        backTextFontSopra,
-        backTextColorSopra,
-        backTextPositionSopra
+        frontTextSopra,
+        frontTextSizeSopra,
+        frontTextFontSopra,
+        frontTextColorSopra,
+        frontTextPositionSopra
     }){
     const ciottolo = useLoader(GLTFLoader, ciottolo_model)
 
@@ -49,10 +49,10 @@ export default function Cavaliere({
                 <CavaliereLayer 
                     position={[0,0,0]} 
                     rotation={[angleToRadians(90), 0, 0]}
-                    scale={[0.50,0.44,0.01]}
+                    scale={[0.5,0.44,0.01]}
                     htmlPosition={[baseImagePos.x, baseImagePos.y, 1]}
                     htmlRotation={[angleToRadians(0), angleToRadians(0), angleToRadians(0)]}
-                    htmlScale={[baseHtmlScale[0], baseHtmlScale[1], 1]}
+                    htmlScale={[baseHtmlScale[0], baseHtmlScale[1]]}
                     color={baseColor}
                     image={baseImage}
                     text={baseText}
@@ -67,7 +67,7 @@ export default function Cavaliere({
                     scale={[0.5,0.68,0.01]} 
                     htmlPosition={[frontImagePos.x, frontImagePos.y, -1]}
                     htmlRotation={[angleToRadians(0), angleToRadians(180), angleToRadians(0)]}
-                    htmlScale={[frontHtmlScale[0], frontHtmlScale[1], 1]}
+                    htmlScale={[frontHtmlScale[0], frontHtmlScale[1]]}
                     color={frontColor}
                     image={frontImage}
                     text={frontText}
@@ -77,26 +77,28 @@ export default function Cavaliere({
                     textPosition={[frontTextPosition.x, frontTextPosition.y, -0.6]}
                     logoColor={frontLogoColor}
                     textRotation={[0,angleToRadians(180), 0]}
+                    textRotationSopra={[0,angleToRadians(180), 0]}
+                    textPositionSopra={[frontTextPositionSopra.x, frontTextPositionSopra.y, -0.6]}
+                    textSopra={frontTextSopra}
+                    textSizeSopra={frontTextSizeSopra}
+                    textColorSopra={frontTextColorSopra}
+                    textFontSopra={frontTextFontSopra}
                 />
                 <CavaliereLayer 
                     position={[0,0.32,0.111]} 
                     rotation={[angleToRadians(-19.45), 0, 0]} 
                     scale={[0.5,0.68,0.01]} 
+                    imgScale={[backHtmlScale[0], backHtmlScale[1]]}
                     htmlPosition={[backImagePos.x, backImagePos.y, 1]}
                     htmlRotation={[angleToRadians(0), angleToRadians(0), angleToRadians(0)]}
-                    htmlScale={[backHtmlScale[0], backHtmlScale[1], 1]}
+                    htmlScale={[backHtmlScale[0], backHtmlScale[1]]}
                     color={backColor}
                     image={backImage}
                     text={backText}
                     textSize={backTextSize}
                     textColor={backTextColor}
                     textFont={backTextFont}
-                    textPosition={[backTextPosition.x, backTextPosition.y, 0.6]}
-                    textSopra={backTextSopra}
-                    textSizeSopra={backTextSizeSopra}
-                    textColorSopra={backTextColorSopra}
-                    textFontSopra={backTextFontSopra}
-                    textPositionSopra={[backTextPositionSopra.x, backTextPositionSopra.y, 0.6]}
+                    textPosition={[backTextPosition.x, backTextPosition.y, 0.6]}                    
                 />
                 <primitive object={ciottolo.scene} scale={[0.06,0.06,0.06]} position={[0,0.022,0]}/>
             </group>

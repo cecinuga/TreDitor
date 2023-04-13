@@ -7,6 +7,7 @@ import { useTexture } from '@react-three/drei'
 export type ImageProps = Omit<JSX.IntrinsicElements['mesh'], 'scale'> & {
   segments?: number
   scale?: number | [number, number]
+  imgScale?: number | [number, number],
   color?: Color
   zoom?: number
   grayscale?: number
@@ -82,6 +83,7 @@ const ImageBase = React.forwardRef(
       color,
       segments = 1,
       scale = 1,
+      imgScale = 1,
       zoom = 1,
       grayscale = 0,
       opacity = 1,
@@ -95,6 +97,9 @@ const ImageBase = React.forwardRef(
     extend({ ImageMaterial: ImageMaterialImpl })
     const gl = useThree((state) => state.gl)
     const planeBounds = Array.isArray(scale) ? [scale[0], scale[1]] : [scale, scale]
+
+    const imageScale = Array.isArray(imgScale) ? [imgScale[0], imgScale[1]] : [imgScale, imgScale] //mio
+
     const imageBounds = [texture!.image.width, texture!.image.height]
     return (
       <mesh ref={ref} scale={Array.isArray(scale) ? [...scale, 1] : scale} {...props}>
@@ -106,7 +111,7 @@ const ImageBase = React.forwardRef(
           zoom={zoom}
           grayscale={grayscale}
           opacity={opacity}
-          scale={planeBounds}
+          scale={imageScale} //BUG: L'IMMAGINE SI STIRA, PERCHE HA LA STESSA GRANDEZZA DI SUO PADRE MA è LIMITATA DAI SUOI LIMITI 
           imageBounds={imageBounds}
           toneMapped={toneMapped}
           transparent={transparent}

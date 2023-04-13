@@ -25,21 +25,27 @@ export default function Scene({logo, style, qrorder, qrnoorder}){
 
     const [front, setFront] = useControls("Front-End", () => ({
         color: {
-            value:style.main,
+            value: style.main,
             transient:false,
             onChange: (v) => {},
         }, 
         image: folder({
-            logoColor: style.main,
-            position_img: { x: 0, y: 0.1},
-            scale_img: {x: 0.8, y: 0.4}
-       }),
-        text: folder({
-            text: 'Osteria Francescana',
-            text_position: {x:0, y:-0.38},
-            size: { value: 4, min: 0, max: 30, step: 1 },
-            text_color: { value: '#fff' },
-            font: { options: fonts },
+            position_img: { x: 0,y: -0.03},
+            scale_img: {x: 0.69, y: 0.5},
+        }),
+        testo_sotto: folder({
+            text_sotto: 'Menumal.it/test',
+            text_position_sotto: {value: {x:0, y:-0.38}},
+            size_sotto: { value: 2.3, min: 0, max: 2.85, step: 1 },
+            text_color_sotto: { value: '#fff' },
+            font_sotto: { options: fonts },
+          }),
+        testo_sopra: folder({
+            text_sopra: 'Menu',
+            text_position_sopra: {value: {x:0, y:0.38}},
+            size_sopra: { value: 5, min: 0, max: 30, step: 1 },
+            text_color_sopra: { value: '#fff' },
+            font_sopra: { options: fonts },
           }),
         font: { options: fonts }
     }))
@@ -47,27 +53,21 @@ export default function Scene({logo, style, qrorder, qrnoorder}){
  
    const [back, setBack] = useControls('Back-End', () => ({
         color: {
-            value: style.main,
+            value:style.main,
             transient:false,
             onChange: (v) => {},
         }, 
         image: folder({
-            position_img: { x: 0,y: -0.03},
-            scale_img: {x: 0.5, y: 0.5, z: 0.5},
-        }),
-        testo_sotto: folder({
-            text_sotto: 'Menumal.it/osteriafrancescana',
-            text_position_sotto: {value: {x:0, y:-0.38}},
-            size_sotto: { value: 2.3, min: 0, max: 30, step: 1 },
-            text_color_sotto: { value: '#fff' },
-            font_sotto: { options: fonts },
-          }),
-        testo_sopra: folder({
-            text_sopra: 'MenuMal',
-            text_position_sopra: {value: {x:0, y:0.38}},
-            size_sopra: { value: 5, min: 0, max: 30, step: 1 },
-            text_color_sopra: { value: '#fff' },
-            font_sopra: { options: fonts },
+            logoColor: style.main,
+            position_img: { x: 0, y: 0.34,},
+            scale_img: {x: 0.8, y: 0.4}
+       }),
+        text: folder({
+            text: 'Il Tuo Ristorante',
+            text_position: {x:0, y:-0.38},
+            size: { value: 4, min: 0, max: 4, step: 1 },
+            text_color: { value: '#fff' },
+            font: { options: fonts },
           }),
         font: { options: fonts }
     }))
@@ -121,31 +121,31 @@ export default function Scene({logo, style, qrorder, qrnoorder}){
                 meshPos={[object.position.x,object.position.y,6]} 
                 meshScale={object.scale} 
                 
-                frontHtmlScale={[front.scale_img.x, front.scale_img.y]}
-                frontColor={front.color} 
-                frontImage={logo}
-                frontImagePos={front.position_img}
-                frontText={front.text}
-                frontTextSize={front.size}
-                frontTextFont={front.font}
-                frontTextColor={front.text_color}
-                frontTextPosition={front.text_position}
-                frontLogoColor={front.logoColor}
-
                 backHtmlScale={[back.scale_img.x, back.scale_img.y]}
                 backColor={back.color} 
-                backImage={qrorder}
-                backImagePos={back.position_img}      
-                backText={back.text_sotto}
-                backTextSize={back.size_sotto}
-                backTextFont={back.font_sotto}
-                backTextColor={back.text_color_sotto}
-                backTextPosition={back.text_position_sotto}
-                backTextSopra={back.text_sopra}
-                backTextSizeSopra={back.size_sopra}
-                backTextFontSopra={back.font_sopra}
-                backTextColorSopra={back.text_color_sopra}
-                backTextPositionSopra={back.text_position_sopra}
+                backImage={logo}
+                backImagePos={back.position_img}
+                backText={back.text}
+                backTextSize={back.size}
+                backTextFont={back.font}
+                backTextColor={back.text_color}
+                backTextPosition={back.text_position}
+                backLogoColor={back.logoColor}
+
+                frontHtmlScale={[front.scale_img.x, front.scale_img.y]}
+                frontColor={front.color} 
+                frontImage={qrorder}
+                frontImagePos={front.position_img}      
+                frontText={front.text_sotto}
+                frontTextSize={front.size_sotto}
+                frontTextFont={front.font_sotto}
+                frontTextColor={front.text_color_sotto}
+                frontTextPosition={front.text_position_sotto}
+                frontTextSopra={front.text_sopra}
+                frontTextSizeSopra={front.size_sopra}
+                frontTextFontSopra={front.font_sopra}
+                frontTextColorSopra={front.text_color_sopra}
+                frontTextPositionSopra={front.text_position_sopra}
 
                 baseHtmlScale={[base.scale_img.x, base.scale_img.y]}
                 baseColor={base.color} 

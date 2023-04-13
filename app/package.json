@@ -1,5 +1,5 @@
 {
-  "proxy":"menumal.it",
+  "proxy": "menumal.it",
   "name": "app",
   "private": false,
   "version": "0.0.0",
@@ -21,6 +21,7 @@
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",
+    "three": "^0.151.3",
     "zustand": "^4.3.7"
   },
   "devDependencies": {
