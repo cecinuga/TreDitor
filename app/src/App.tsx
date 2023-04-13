@@ -24,7 +24,11 @@ export default function App() {
             <Container fluid>
               <Header>TreDitor</Header>
               <Routes>
-                <Route path='/' element={<EditorPage />}></Route>
+                <Route path='/' element={
+                  <Suspense fallback={null}>
+                    <EditorPage />
+                  </Suspense>
+                }></Route>
                 <Route path='/demo' element={<DemoPage />}></Route>
               </Routes>
             </Container>

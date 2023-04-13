@@ -10,10 +10,11 @@ export type HeaderProps = {
 export default function Header(props: HeaderProps){
     const navigate = useNavigate()
 
+
     return (
         <Row className="bg-gradient-primary border-b-2-white">
             <Col xs={3} className="text-center text-white position-relative fs-2 font-semibold font-secondary color-primary pt-3">
-                <div className="d-inline-block fs-2 font-primary">MenuMal</div><div className="d-inline-block mx-3 fs-5">x</div>  <div className="d-inline-block fs-2 font-secondary">Drop<div className="d-inline-block font-third color-secondary-2">Link</div></div>
+                <div className="d-inline-block fs-2 font-primary">MenuMal</div><div className="d-inline-block mx-3 fs-5">x</div>  <div className="d-inline-block fs-2 font-secondary">Drop<div className="d-inline-block font-third color-secondary-2">Link</div></div>                
             </Col>
             <Col xl={6} className="text-center text-white fs-1 position-relative font-semibold font-secondary color-primary pt-2" >
                 {props.children}

@@ -1,0 +1,22 @@
+main: colore sfondo di TUTTO il Cavaliere
+hover: ???
+macroTitleColor: colore titolo Fronte
+fontName: colore font macroTitleColor
+fontDescription: colore font descrizione dietro
+fontPrice: ???
+fontStyle: stile di TUTTO il font
+fontSize: size del font
+backgroundColor: ???
+backgroundColorHeaderScroller: ???
+backgroundColorfooter: ???
+fontCategory: ???
+backgroundColorBar: ???
+fontCategoryHover: ???
+shadowBarColor: ???
+macroTextColor: ???
+angoloCategorie: ???
+lineaCategorie: ???
+blurBackground: ???
+opacityBackground: ???
+backgroundSizeImg: size immagine footer
+multiArea: ???

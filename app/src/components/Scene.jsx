@@ -3,8 +3,10 @@ import Cavaliere from './Cavaliere/Cavaliere';
 import { useControls, folder, buttonGroup } from 'leva';
 import {fonts} from "./Cavaliere/font"
 import { Button } from 'react-bootstrap';
+import { useEffect } from 'react';
+import Grid from './Cavaliere/Grid';
 
-export default function Scene(){
+export default function Scene({logo, style, qrorder, qrnoorder}){
     const [object, setObject] = useControls("Object", () => ({
         scale: {
             value: [1,1,1],
@@ -23,14 +25,14 @@ export default function Scene(){
 
     const [front, setFront] = useControls("Front-End", () => ({
         color: {
-            value:"red",
+            value:style.main,
             transient:false,
             onChange: (v) => {},
         }, 
         image: folder({
-            image: "/qrcode.png",
+            logoColor: style.main,
             position_img: { x: 0, y: 0.1},
-            scale_img: {x: 0.7, y: 0.7, z: 0.7},
+            scale_img: {x: 0.8, y: 0.4, z: 0.7}
        }),
         text: folder({
             text: 'Osteria Francescana',
@@ -38,8 +40,6 @@ export default function Scene(){
             size: { value: 4, min: 0, max: 30, step: 1 },
             text_color: { value: '#fff' },
             font: { options: fonts },
-            textX: { value: 0, min: 0, max: 360, step: 1 },
-            textY: { value: 0, min: 0, max: 360, step: 1 }            
           }),
         font: { options: fonts }
     }))
@@ -47,23 +47,27 @@ export default function Scene(){
  
    const [back, setBack] = useControls('Back-End', () => ({
         color: {
-            value:"#f94e4e",
+            value: style.main,
             transient:false,
             onChange: (v) => {},
         }, 
         image: folder({
-            image: "/qrcode.png",
-            position_img: { x: 0,y: 0.1},
-            scale_img: {x: 0.7, y: 0.7, z: 0.7},
+            position_img: { x: 0,y: -0.03},
+            scale_img: {x: 0.5, y: 0.5, z: 0.5},
         }),
-        text: folder({
-            text: 'MenuMal',
-            text_position: {value: {x:0, y:-0.38}},
-            size: { value: 5, min: 0, max: 30, step: 1 },
-            text_color: { value: '#fff' },
-            font: { options: fonts },
-            textX: { value: 0, min: 0, max: 360, step: 1 },
-            textY: { value: 180, min: 0, max: 360, step: 1 }
+        testo_sotto: folder({
+            text_sotto: 'Menumal.it/osteriafrancescana',
+            text_position_sotto: {value: {x:0, y:-0.38}},
+            size_sotto: { value: 2.3, min: 0, max: 30, step: 1 },
+            text_color_sotto: { value: '#fff' },
+            font_sotto: { options: fonts },
+          }),
+        testo_sopra: folder({
+            text_sopra: 'MenuMal',
+            text_position_sopra: {value: {x:0, y:0.38}},
+            size_sopra: { value: 5, min: 0, max: 30, step: 1 },
+            text_color_sopra: { value: '#fff' },
+            font_sopra: { options: fonts },
           }),
         font: { options: fonts }
     }))
@@ -71,7 +75,7 @@ export default function Scene(){
 
     const [base, setBase] = useControls("Base", () => ({
         color: {
-            value:"#930707",
+            value:style.main,
             transient:false,
             onChange: (v) => {},
         }, 
@@ -86,8 +90,6 @@ export default function Scene(){
             size: { value: 5, min: 0, max: 30, step: 1 },
             text_color: { value: '#fff' },
             font: { options: fonts },
-            textX: { value: 0, min: 0, max: 360, step: 1 },
-            textY: { value: 0, min: 0, max: 360, step: 1 }
           }),
         font: { options: fonts }
     }))
@@ -107,9 +109,6 @@ export default function Scene(){
     })
 
 
-    
-
-
     return( 
         <> 
             <OrbitControls target={[object.position.x,object.position.y,6]} />
@@ -120,28 +119,31 @@ export default function Scene(){
                 meshPos={[object.position.x,object.position.y,6]} 
                 meshScale={object.scale} 
                 
-
                 frontHtmlScale={[front.scale_img.x, front.scale_img.y, front.scale_img.z]}
                 frontColor={front.color} 
-                frontImage={front.image}
+                frontImage={logo}
                 frontImagePos={front.position_img}
                 frontText={front.text}
                 frontTextSize={front.size}
                 frontTextFont={front.font}
                 frontTextColor={front.text_color}
                 frontTextPosition={front.text_position}
-                frontTextRotation={{x: front.textX, y: front.textY}}
+                frontLogoColor={front.logoColor}
 
                 backHtmlScale={[back.scale_img.x, back.scale_img.y, back.scale_img.z]}
                 backColor={back.color} 
-                backImage={back.image}
+                backImage={qrorder}
                 backImagePos={back.position_img}      
-                backText={back.text}
-                backTextSize={back.size}
-                backTextFont={back.font}
-                backTextColor={back.text_color}
-                backTextPosition={back.text_position}
-                backTextRotation={{x: back.textX, y: back.textY}}
+                backText={back.text_sotto}
+                backTextSize={back.size_sotto}
+                backTextFont={back.font_sotto}
+                backTextColor={back.text_color_sotto}
+                backTextPosition={back.text_position_sotto}
+                backTextSopra={back.text_sopra}
+                backTextSizeSopra={back.size_sopra}
+                backTextFontSopra={back.font_sopra}
+                backTextColorSopra={back.text_color_sopra}
+                backTextPositionSopra={back.text_position_sopra}
 
                 baseHtmlScale={[base.scale_img.x, base.scale_img.y, base.scale_img.z]}
                 baseColor={base.color} 
@@ -152,8 +154,8 @@ export default function Scene(){
                 baseTextFont={base.font}
                 baseTextColor={base.text_color}
                 baseTextPosition={base.text_position}
-                baseTextRotation={{x: base.textX, y: base.textY}}
             />
+            <Grid />
         </>
     )
 }

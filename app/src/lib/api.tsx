@@ -5,14 +5,14 @@ export const SERVER_URL = "https://menumal.it/"
 export class Api {
     private static request = axios.create({
         baseURL:`${SERVER_URL}`,
-        withCredentials: false,
+        withCredentials:false,
         headers: {
              "Content-Type": "application/json",
-             "Access-Control-Allow-Credentials":"true", 
+             "Access-Control-Allow-Credentials":false, 
              "Access-Control-Allow-Origin":"*", 
              "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
              "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length"
-            },
+        },
     });
 
     static async post <T>(url: string, body?: T, headers?: {}) {
