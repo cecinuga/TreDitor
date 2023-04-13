@@ -10,13 +10,13 @@ export default function Grid(){
         diffuse.wrapS = RepeatWrapping
         diffuse.wrapT = RepeatWrapping
         diffuse.anisotropy = 4
-        diffuse.repeat.set(30, 30)
+        diffuse.repeat.set(500, 500)
         diffuse.offset.set(0, 0)
     }, [diffuse])
 
     return(
-        <mesh rotation-x={-Math.PI * 0.5} position={[0, 0.425, 0]}>
-            <planeGeometry args={[35, 35]} />
+        <mesh rotation-x={-Math.PI * 0.5} position={[20, -10, -20]}>
+            <planeGeometry args={[500, 500]} />
             <meshBasicMaterial 
                 color={[1, 1, 1]}
                 opacity={0.15}

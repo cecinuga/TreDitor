@@ -32,7 +32,7 @@ export default function Scene({logo, style, qrorder, qrnoorder}){
         image: folder({
             logoColor: style.main,
             position_img: { x: 0, y: 0.1},
-            scale_img: {x: 0.8, y: 0.4, z: 0.7}
+            scale_img: {x: 0.8, y: 0.4}
        }),
         text: folder({
             text: 'Osteria Francescana',
@@ -82,7 +82,7 @@ export default function Scene({logo, style, qrorder, qrnoorder}){
         image: folder({
             image: "",
             position_img: { x: 0,y: 0.1},
-            scale_img: {x: 0.7, y: 0.7, z: 0.7},
+            scale_img: {x: 0.7, y: 0.7},
         }),
         text: folder({
             text: '',
@@ -113,13 +113,15 @@ export default function Scene({logo, style, qrorder, qrnoorder}){
         <> 
             <OrbitControls target={[object.position.x,object.position.y,6]} />
             <PerspectiveCamera makeDefault fov={33} position={[0,0,0]} />
-
             <ambientLight color="white" intensity={1}/>
+
+            <Grid />
+
             <Cavaliere 
                 meshPos={[object.position.x,object.position.y,6]} 
                 meshScale={object.scale} 
                 
-                frontHtmlScale={[front.scale_img.x, front.scale_img.y, front.scale_img.z]}
+                frontHtmlScale={[front.scale_img.x, front.scale_img.y]}
                 frontColor={front.color} 
                 frontImage={logo}
                 frontImagePos={front.position_img}
@@ -130,7 +132,7 @@ export default function Scene({logo, style, qrorder, qrnoorder}){
                 frontTextPosition={front.text_position}
                 frontLogoColor={front.logoColor}
 
-                backHtmlScale={[back.scale_img.x, back.scale_img.y, back.scale_img.z]}
+                backHtmlScale={[back.scale_img.x, back.scale_img.y]}
                 backColor={back.color} 
                 backImage={qrorder}
                 backImagePos={back.position_img}      
@@ -145,7 +147,7 @@ export default function Scene({logo, style, qrorder, qrnoorder}){
                 backTextColorSopra={back.text_color_sopra}
                 backTextPositionSopra={back.text_position_sopra}
 
-                baseHtmlScale={[base.scale_img.x, base.scale_img.y, base.scale_img.z]}
+                baseHtmlScale={[base.scale_img.x, base.scale_img.y]}
                 baseColor={base.color} 
                 baseImage={base.image}
                 baseImagePos={base.position_img}
@@ -155,7 +157,6 @@ export default function Scene({logo, style, qrorder, qrnoorder}){
                 baseTextColor={base.text_color}
                 baseTextPosition={base.text_position}
             />
-            <Grid />
         </>
     )
 }

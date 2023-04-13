@@ -1,4 +1,4 @@
 1) lo stile cambia di struttura con il variare del Job?
 2) Diamo la possibilità di creare, salvare e cancellare i layout?( quindi server in mongo e bam di pagina login )
 3) Quando clicco su stampa ti salva l'immagine o richiamo menumal e gliela mando?
-4) 
+4) Il triangolo del cavaliere è isoscele? metto un cavaliere standard
