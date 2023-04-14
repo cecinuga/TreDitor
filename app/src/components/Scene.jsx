@@ -8,11 +8,6 @@ import Grid from './Cavaliere/Grid';
 
 export default function Scene({logo, style, qrorder, qrnoorder}){
     const [object, setObject] = useControls("Object", () => ({
-        scale: {
-            value: [1,1,1],
-            transient:false,
-            onChange: (v) => {},
-        },
         position: {
             value:{
                 x: -5,
@@ -59,7 +54,7 @@ export default function Scene({logo, style, qrorder, qrnoorder}){
         }, 
         image: folder({
             logoColor: style.main,
-            position_img: { x: 0, y: 0.34,},
+            position_img: { x: 0, y: 0,},
             scale_img: {x: 0.8, y: 0.4}
        }),
         text: folder({
@@ -119,7 +114,7 @@ export default function Scene({logo, style, qrorder, qrnoorder}){
 
             <Cavaliere 
                 meshPos={[object.position.x,object.position.y,6]} 
-                meshScale={object.scale} 
+                meshScale={[1,1,1]}
                 
                 backHtmlScale={[back.scale_img.x, back.scale_img.y]}
                 backColor={back.color} 

@@ -1,5 +1,4 @@
 main: colore sfondo di TUTTO il Cavaliere
-
 backgroundColor: ???
 fontCategoryHover: ???
 

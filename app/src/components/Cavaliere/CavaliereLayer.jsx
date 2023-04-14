@@ -1,35 +1,73 @@
-import { Bounds, Html, Instance, Instances, BBAnchor, Text } from "@react-three/drei"
+import { Bounds, Html, Instance, Instances, BBAnchor, Text, RoundedBox } from "@react-three/drei"
 import { useRef } from "react"
-import { angleToRadians } from "../../lib/lib"
+import { angleToRadians, percent } from "../../lib/lib"
 import { createPortal } from "react-dom"
 import { useFrame, useLoader, useThree } from "@react-three/fiber"
 import {Image} from './Image/Image'
 
-export default function CavaliereLayer({position, rotation, scale, htmlPosition, color, image, text, textSize, textColor, textFont, textPosition, htmlRotation, htmlScale, logoColor, textRotation, textSopra, textSizeSopra, textColorSopra, textFontSopra, textPositionSopra, textRotationSopra, imgScale}){
-    const imageRef = useRef(null)
-    
+export default function CavaliereLayer({position
+    ,rotation
+    ,scale
+    ,imgPos
+    ,color
+    ,image
+    ,text
+    ,textSize
+    ,textColor
+    ,textFont
+    ,textPosition
+    ,htmlRotation
+    ,htmlScale
+    ,logoColor
+    ,textRotation
+    ,textSopra
+    ,textSizeSopra
+    ,textColorSopra
+    ,textFontSopra
+    ,textPositionSopra
+    ,textRotationSopra
+    ,imgScale
+    ,insidePos
+    ,paddingColor=color
+    ,paddingPos=[0,0,0]
+    ,paddingDir
+}){
+    const paddingRef = useRef(null)
+    const layerRef = useRef(null)
     useFrame(()=>{
-        if(imageRef.current){
-            console.log(imageRef.current)
-        }
+        console.log(paddingRef)
     })
 
+
     return(
-        <group >
-            <mesh rotation={rotation} scale={scale} position={position}>
-                <boxGeometry />
-                <meshStandardMaterial color={color}/>
-                <Text fontSize={textSize} color={textColor} rotation={textRotation} font={textFont} position={textPosition} scale={[0.02,0.02,0.02]}>{text}</Text>
+        <group scale={scale} position={position} rotation={rotation}>
+            <group>
+                <mesh ref={layerRef} >
+                    <boxGeometry />
+                    <meshStandardMaterial color={color}/>
+                    <Text fontSize={textSize} color={textColor} rotation={textRotation} font={textFont} position={textPosition} scale={[0.02,0.02,0.02]}>{text}</Text>
+                    <Text fontSize={textSizeSopra} color={textColorSopra} rotation={textRotationSopra} font={textFontSopra} position={textPositionSopra} scale={[0.02,0.02,0.02]}>{textSopra}</Text>
+                </mesh>
                 {image && 
-                    <Image color={logoColor} position={htmlPosition} rotation={htmlRotation} url={image} scale={htmlScale} imgScale={imgScale} transparent={true} />
+                    <>
+                        <RoundedBox ref={paddingRef} scale={[0.75,0.55,0.85]} smoothness={5} rotation={paddingDir} position={paddingPos}>
+                            <meshStandardMaterial color={paddingColor}/>
+                        </RoundedBox>
+                        <mesh position={[0,0.03,0]}>
+                            <Image color={logoColor} position={imgPos} rotation={htmlRotation} url={image} scale={htmlScale} imgScale={imgScale} transparent={true} />
+                        </mesh>
+                    </>
                 }
-                <Text fontSize={textSizeSopra} color={textColorSopra} rotation={textRotationSopra} font={textFontSopra} position={textPositionSopra} scale={[0.02,0.02,0.02]}>{textSopra}</Text>
+            </group>
+            <mesh scale={[1, 0.92, 0.9]}  position={insidePos} >
+                <boxGeometry />
+                <meshStandardMaterial color={"white"}/>
             </mesh>
         </group>
     )
 }
 /*     
-<Html transform className="text-white" position={[htmlPosition[0],htmlPosition[1],position[2]]} >
+<Html transform className="text-white" position={[imgPos[0],imgPos[1],position[2]]} >
                 {<img className="position-relative" src={image} width={`${imageWidth}px`} height={`${imageHeight}px`}></img>}
             </Html>           
 */
