@@ -4,6 +4,7 @@ import { angleToRadians, percent } from "../../lib/lib"
 import { createPortal } from "react-dom"
 import { useFrame, useLoader, useThree } from "@react-three/fiber"
 import {Image} from './Image/Image'
+import rocaOne from "../../fonts/roca/RocaOne-Bl.woff"
 
 export default function CavaliereLayer({position
     ,rotation
@@ -14,16 +15,14 @@ export default function CavaliereLayer({position
     ,text
     ,textSize
     ,textColor
-    ,textFont
     ,textPosition
     ,htmlRotation
-    ,htmlScale
+    ,imgParentScale
     ,logoColor
     ,textRotation
     ,textSopra
     ,textSizeSopra
     ,textColorSopra
-    ,textFontSopra
     ,textPositionSopra
     ,textRotationSopra
     ,imgScale
@@ -45,17 +44,19 @@ export default function CavaliereLayer({position
                 <mesh ref={layerRef} >
                     <boxGeometry />
                     <meshStandardMaterial color={color}/>
-                    <Text fontSize={textSize} color={textColor} rotation={textRotation} font={textFont} position={textPosition} scale={[0.02,0.02,0.02]}>{text}</Text>
-                    <Text fontSize={textSizeSopra} color={textColorSopra} rotation={textRotationSopra} font={textFontSopra} position={textPositionSopra} scale={[0.02,0.02,0.02]}>{textSopra}</Text>
+                    <Text fontSize={textSize} color={textColor} rotation={textRotation} font={rocaOne} position={textPosition} scale={[0.02,0.02,0.02]}>{text}</Text>
+                    <Text fontSize={textSizeSopra} color={textColorSopra} rotation={textRotationSopra} font={rocaOne} position={textPositionSopra} scale={[0.02,0.02,0.02]}>{textSopra}</Text>
                 </mesh>
                 {image && 
                     <>
-                        <RoundedBox ref={paddingRef} scale={[0.75,0.55,0.85]} smoothness={5} rotation={paddingDir} position={paddingPos}>
-                            <meshStandardMaterial color={paddingColor}/>
-                        </RoundedBox>
-                        <mesh position={[0,0.03,0]}>
-                            <Image color={logoColor} position={imgPos} rotation={htmlRotation} url={image} scale={htmlScale} imgScale={imgScale} transparent={true} />
-                        </mesh>
+                        <group scale={imgParentScale}>
+                            <RoundedBox ref={paddingRef} scale={[0.75,0.55,0.85]} smoothness={5} rotation={paddingDir} position={paddingPos}>
+                                <meshStandardMaterial color={paddingColor}/>
+                            </RoundedBox>
+                            <mesh position={[0,0.03,0]}>
+                                <Image color={logoColor} position={imgPos} rotation={htmlRotation} url={image} scale={[0.62,0.45,1]} imgScale={imgScale} transparent={true} />
+                            </mesh>
+                        </group>
                     </>
                 }
             </group>

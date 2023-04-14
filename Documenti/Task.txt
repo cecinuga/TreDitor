@@ -1,24 +1,10 @@
 1) Aggiungere due layer al CavaliereLayer
 8) Aggiungere componente reset configurazione
 9) Inserire i max e i min per le posizioni di testo e immagine nei controlli
-10) Inserire useDrag sulla mesh del Cavaliere
-11) Inserire Conditionally showing fields
-12) Creare json di configurazione
-13) Inserire Download json di configurazione
-14) Inserire Upload json di configurazione
 15) Centrare le posizione
-16) Creare Layout 
-17) Creare pagina dei layout
-18) Creare salva configurazione
-19) Creare carica configurazione
 22) Pulsate con SalvaStampa(stirare il cavalierino)
 23) Ricalibrazione totale assi leva
 24) far decidere con lo switch se il qr è order o noorder
-25) usare font roca
-26) la scritta dietro è Menu
-27) padding bianco intorno al qr border radius 
-28) logo centrale dietro
-29) invertire i fronti
 30) 
 
 scritte o sono bianche o sono nere in base allo sfondo

@@ -17,13 +17,10 @@ export default function Cavaliere({
         backImagePos,
         baseImagePos,
         backTextSize,
-        backTextFont,
         backTextColor,
         frontTextSize,
-        frontTextFont,
         frontTextColor,
         baseTextSize,
-        baseTextFont,
         baseTextColor,
         frontText,
         baseText,
@@ -37,7 +34,6 @@ export default function Cavaliere({
         frontLogoColor,
         frontTextSopra,
         frontTextSizeSopra,
-        frontTextFontSopra,
         frontTextColorSopra,
         frontTextPositionSopra
     }){
@@ -53,13 +49,12 @@ export default function Cavaliere({
                     scale={[0.5,0.44,0.01]}
                     imgPos={[baseImagePos.x, baseImagePos.y, 1]}
                     htmlRotation={[angleToRadians(0), angleToRadians(0), angleToRadians(0)]}
-                    htmlScale={[baseHtmlScale[0], baseHtmlScale[1]]}
+                    imgParentScale={[baseHtmlScale[0], baseHtmlScale[1]]}
                     color={baseColor}
                     image={baseImage}
                     text={baseText}
                     textSize={baseTextSize}
                     textColor={baseTextColor}
-                    textFont={baseTextFont}
                     textPosition={[baseTextPosition.x, baseTextPosition.y, -1]}
                 />
                 <CavaliereLayer 
@@ -69,13 +64,12 @@ export default function Cavaliere({
                     scale={[0.5,0.68,0.01]}
                     imgPos={[frontImagePos.x, frontImagePos.y, -1.05]}
                     htmlRotation={[angleToRadians(0), angleToRadians(180), angleToRadians(0)]}
-                    htmlScale={[frontHtmlScale[0], frontHtmlScale[1]]}
+                    imgParentScale={[frontHtmlScale[0], frontHtmlScale[1], frontHtmlScale[2]]}
                     color={frontColor}
                     image={frontImage}
                     text={frontText}
                     textSize={frontTextSize}
                     textColor={frontTextColor}
-                    textFont={frontTextFont}
                     textPosition={[frontTextPosition.x, frontTextPosition.y, -0.6]}
                     logoColor={frontLogoColor}
                     textRotation={[0,angleToRadians(180), 0]}
@@ -84,9 +78,8 @@ export default function Cavaliere({
                     textSopra={frontTextSopra}
                     textSizeSopra={frontTextSizeSopra}
                     textColorSopra={frontTextColorSopra}
-                    textFontSopra={frontTextFontSopra}
                     paddingColor={"white"}
-                    imgScale={[0.09,0.09]}
+                    imgScale={[0.01,0.01]}
                     paddingPos={[0,0,-0.6]}
                     paddingSize={[1,0.72]}
                     paddingDir={[0,angleToRadians(180),0]}
@@ -105,7 +98,6 @@ export default function Cavaliere({
                     text={backText}
                     textSize={backTextSize}
                     textColor={backTextColor}
-                    textFont={backTextFont}
                     textPosition={[backTextPosition.x, backTextPosition.y, 0.6]}   
                     paddingSize={[0.7, 0.7]}  
                 />
