@@ -83,6 +83,7 @@ export default function Cavaliere({
                     paddingPos={[0,0,-0.6]}
                     paddingSize={[1,0.72]}
                     paddingDir={[0,angleToRadians(180),0]}
+                    dashedPos={[-0.26, -0.45, -0.5]}
                 />
                 <CavaliereLayer 
                     position={[0,0.32,0.111]}
@@ -101,7 +102,7 @@ export default function Cavaliere({
                     textPosition={[backTextPosition.x, backTextPosition.y, 0.6]}   
                     paddingSize={[0.7, 0.7]}  
                 />
-                <primitive object={ciottolo.scene} scale={[0.06,0.06,0.06]} position={[0,0.022,0]}/>
+                <primitive object={ciottolo.scene} scale={[0.18,0.18,0.18]} position={[0,0.06,0]}/>
             </group>
         </>
     )

@@ -4,7 +4,6 @@
 15) Centrare le posizione
 22) Pulsate con SalvaStampa(stirare il cavalierino)
 23) Ricalibrazione totale assi leva
-24) far decidere con lo switch se il qr è order o noorder
 30) 
 
 scritte o sono bianche o sono nere in base allo sfondo

@@ -1,8 +1,6 @@
 import { Environment, OrbitControls, PerspectiveCamera } from '@react-three/drei'
 import Cavaliere from './Cavaliere/Cavaliere';
 import { useControls, folder, buttonGroup } from 'leva';
-import { Button } from 'react-bootstrap';
-import { useEffect } from 'react';
 import Grid from './Cavaliere/Grid';
 
 export default function Scene({logo, style, qrorder}){
@@ -24,11 +22,12 @@ export default function Scene({logo, style, qrorder}){
             onChange: (v) => {},
         }, 
         testo_sotto: folder({
-            test_sotto: 'Menumal.it/test',
+            testo_sotto: 'Menumal.it/test',
             positione_testo_sotto: {value: {x:0, y:-0.38}},
             grandezza_testo_sotto: { value: 2.3, min: 0, max: 5, step: 1 },
             colore_testo_sotto: { value: '#fff' },
           }),
+          
         testo_sopra: folder({
             testo_sopra: 'Menù',
             positione_testo_sopra: {value: {x:0, y:0.38}},
@@ -102,11 +101,11 @@ export default function Scene({logo, style, qrorder}){
                 backTextPosition={back.text_position}
                 backLogoColor={back.colore_logo}
 
-                frontHtmlScale={[1,1,0.5]}
+                frontHtmlScale={[0.9,0.9,0.5]}
                 frontColor={front.color} 
                 frontImage={qrorder}
                 frontImagePos={{ x: 0,y: -0.03}}      
-                frontText={front.test_sotto}
+                frontText={front.testo_sotto}
                 frontTextSize={front.grandezza_testo_sotto}
                 frontTextColor={front.colore_testo_sotto}
                 frontTextPosition={front.positione_testo_sotto}
