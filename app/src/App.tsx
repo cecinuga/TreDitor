@@ -11,42 +11,26 @@ import { Button } from '@mui/material';
 import Header from './components/Header';
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 import { Api } from './lib/api';
+import { CavaliereContext } from './components/Cavaliere/CavaliereContext';
 
 declare const baseUrl: string;
 const queryClient = new QueryClient()
 
-type ConfigContextType = {
-  config: {
-    stile:  string;
-    logo: string;
-    qr: string;
-  },
-  setConfig: Dispatch<SetStateAction<{ stile: string; logo: string; qr: string; }>>
-}
-
-export const ConfigContext = createContext<ConfigContextType>(
-  {config: {
-    stile: "", 
-    logo: "",
-    qr: "",
-  },
-  setConfig: () => {}
-}
-)
-
-
 export default function App() {
 
   const [config, setConfig] = useState({
-    stile:"https://menumal.it/data/style/test/style.txt", 
-    logo: "https://menumal.it/data/img/logo-test.png",
-    qr: "https://api.qrserver.com/v1/create-qr-code/?size=500x500&format=png&color=000000&bgcolor=ffffff&data=menumal.it/test"
+    job:"test",
+    frontColor: "#00a2ff",
+    backColor: "#00a2ff",
+    baseColor: "#00a2ff",
+    frontTextUp: "Menù",
+    frontTextDown:  "Menumal.it/test",
   })
 
 
   return (
     <>
-      <ConfigContext.Provider value={{config, setConfig}} >
+      <CavaliereContext.Provider value={{config, setConfig}} >
         <BrowserRouter basename={typeof baseUrl === "undefined" ? "/" : baseUrl}>
          <QueryClientProvider client={queryClient}>
             <Container fluid>
@@ -63,7 +47,7 @@ export default function App() {
             </Container>
           </QueryClientProvider>
         </BrowserRouter>
-      </ConfigContext.Provider>
+      </CavaliereContext.Provider>
     </>
   )
 }

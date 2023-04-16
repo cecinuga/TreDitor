@@ -6,12 +6,13 @@ import { Button } from '@mui/material';
 import { useQuery } from "react-query";
 import { Api } from "../lib/api";
 import { generatePath } from "react-router";
-import { ConfigContext } from "../App";
+import { CavaliereContext } from "./Cavaliere/CavaliereContext";
+import { getStyle } from "../lib/lib";
 
 export default function EditorPage(){
-    const {config, setConfig} = useContext(ConfigContext)
+    const {config, setConfig} = useContext(CavaliereContext)
     const {data, isLoading: isLoadingStile} = useQuery("stile", async () => {
-        const stile = await fetch(config.stile).then(async res => await res.json())
+        const stile = await getStyle("test")
         return {stile: stile}
     })
             
@@ -22,8 +23,8 @@ export default function EditorPage(){
                     <Suspense fallback={null}>
                         <Canvas shadows className="h-800px">
                             <Scene 
-                                logo={config.logo} 
-                                qrorder={config.qr}
+                                logo={`https://menumal.it/data/img/logo-${config.job}.png`} 
+                                qrorder={`https://api.qrserver.com/v1/create-qr-code/?size=500x500&format=png&color=000000&bgcolor=ffffff&data=menumal.it/${config.job}`}
                                 style={data?.stile}
                             />
                         </Canvas>

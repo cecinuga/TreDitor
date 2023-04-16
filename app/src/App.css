@@ -6,3 +6,10 @@
 
 .border-b-2-white{border-bottom: 2px solid white}
 .h-800px{height:100vh!important}
+
+.leva-c-kWgxhW-bCBHqk-fill-false {
+    position: fixed;
+    top: 11px;
+    left: 22%!important;
+    z-index: 1000;
+}

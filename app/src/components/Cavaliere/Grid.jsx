@@ -15,7 +15,7 @@ export default function Grid(){
     }, [diffuse])
 
     return(
-        <mesh rotation-x={-Math.PI * 0.5} position={[20, -10, -20]}>
+        <mesh rotation-x={-Math.PI * 0.5} position={[20, -10, -15]}>
             <planeGeometry args={[500, 500]} />
             <meshBasicMaterial 
                 color={[1, 1, 1]}

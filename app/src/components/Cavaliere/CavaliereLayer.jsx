@@ -1,10 +1,12 @@
-import { Bounds, Html, Instance, Instances, BBAnchor, Text, RoundedBox } from "@react-three/drei"
+import { Bounds, Html, Instance, Instances, BBAnchor, Text, RoundedBox, useTexture } from "@react-three/drei"
 import { useRef } from "react"
 import { angleToRadians, percent } from "../../lib/lib"
 import { createPortal } from "react-dom"
 import { useFrame, useLoader, useThree } from "@react-three/fiber"
 import {Image} from './Image/Image'
 import rocaOne from "../../fonts/roca/RocaOne-Bl.woff"
+import cartatexture from "./models/cartatexture.jpg"
+import cartatexturedietro from "./models/cartatexturedietro.jpeg"
 
 export default function CavaliereLayer({position
     ,rotation
@@ -34,17 +36,20 @@ export default function CavaliereLayer({position
 }){
     const paddingRef = useRef(null)
     const layerRef = useRef(null)
+    const texture = useTexture(cartatexture)
+    const texturedietro = useTexture(cartatexturedietro)
+
     useFrame(()=>{
         console.log(paddingRef)
     })
 
 
     return(
-        <group scale={scale} position={position} rotation={rotation}>
+        <group scale={scale} position={position} rotation={rotation} castShadow>
             <group>
-                <mesh ref={layerRef} >
+                <mesh ref={layerRef}>
                     <boxGeometry />
-                    <meshStandardMaterial color={color}/>
+                    <meshPhongMaterial color={color} map={texturedietro}/>
                     <Text fontSize={textSize} color={textColor} rotation={textRotation} font={rocaOne} position={textPosition} scale={[0.02,0.02,0.02]}>{text}</Text>
                     <Text fontSize={textSizeSopra} color={textColorSopra} rotation={textRotationSopra} font={rocaOne} position={textPositionSopra} scale={[0.02,0.02,0.02]}>{textSopra}</Text>
                 </mesh>
@@ -59,9 +64,9 @@ export default function CavaliereLayer({position
                     </group>
                 }
             </group>
-            <mesh scale={[1, 0.92, 0.9]}  position={insidePos} >
+            <mesh scale={[1, 1, 0.9]} position={insidePos} >
                 <boxGeometry />
-                <meshStandardMaterial color={"white"}/>
+                <meshStandardMaterial color={"white"} map={texture}/>
             </mesh>
             {dashedPos && 
                 <group position={dashedPos}>

@@ -2,25 +2,25 @@ import { Col, Container, Row } from "react-bootstrap";
 import { ReactElement, useContext, useState } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router";
-import { ConfigContext } from "../App";
+import { CavaliereContext } from "./Cavaliere/CavaliereContext";
 
 export type HeaderProps = {
     children?: ReactElement | string;
 }
 
 export default function Header(props: HeaderProps){
-    const {config, setConfig} = useContext(ConfigContext)
+    const {config, setConfig} = useContext(CavaliereContext)
     const navigate = useNavigate()
-    const [qrState, setQrState] = useState<string>("Order")
+    const [qrState, setQrState] = useState<"Order" | "No Order">("Order")
 
     const switchQr = () => {
         if(qrState=="Order") {
             setQrState("No Order"); 
-            setConfig((c)=>({...c, qr: "https://api.qrserver.com/v1/create-qr-code/?size=500x500&format=png&color=000000&bgcolor=ffffff&data=menumal.it/test@"}))
+            setConfig((c)=>({...c, qr: `https://api.qrserver.com/v1/create-qr-code/?size=500x500&format=png&color=000000&bgcolor=ffffff&data=menumal.it/${config.job}@`}))
             return
         }
         setQrState("Order")
-        setConfig((c)=>({...c, qr: "https://api.qrserver.com/v1/create-qr-code/?size=500x500&format=png&color=000000&bgcolor=ffffff&data=menumal.it/test"}))
+        setConfig((c)=>({...c, qr: `https://api.qrserver.com/v1/create-qr-code/?size=500x500&format=png&color=000000&bgcolor=ffffff&data=menumal.it/${config.job}`}))
     }
 
 
@@ -32,10 +32,10 @@ export default function Header(props: HeaderProps){
             <Col xl={6} className="text-center text-white fs-1 position-relative font-semibold font-secondary color-primary pt-2" >
                 {props.children}
             </Col>
-            <Col xl={3} className="pt-3">
+            <Col xl={3} className="pt-3 text-left">
                 <Button onClick={switchQr} className="text-white">{qrState}</Button>
                 <Button href="" onClick={()=>navigate("/")} variant="contained" color="success" className='font-primary mx-3'>Editor</Button>
-                <Button href="" onClick={()=>navigate("/demo")} variant="contained" color="error" className="font-primary ">Demo</Button>
+                <Button href="" onClick={()=>navigate("/demo")} variant="contained" color="error" className="font-primary">Demo</Button>
             </Col>
         </Row>
     );

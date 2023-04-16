@@ -2,6 +2,8 @@ import { Environment, OrbitControls, PerspectiveCamera } from '@react-three/drei
 import Cavaliere from './Cavaliere/Cavaliere';
 import { useControls, folder, buttonGroup } from 'leva';
 import Grid from './Cavaliere/Grid';
+import { useContext } from 'react';
+import { CavaliereContext } from './Cavaliere/CavaliereContext';
 
 export default function Scene({logo, style, qrorder}){
     const [object, setObject] = useControls("Object", () => ({
@@ -17,7 +19,7 @@ export default function Scene({logo, style, qrorder}){
 
     const [front, setFront] = useControls("Front-End", () => ({
         color: {
-            value: style.main,
+            value: "#00a2ff",
             transient:false,
             onChange: (v) => {},
         }, 
@@ -25,40 +27,34 @@ export default function Scene({logo, style, qrorder}){
             testo_sotto: 'Menumal.it/test',
             positione_testo_sotto: {value: {x:0, y:-0.38}},
             grandezza_testo_sotto: { value: 2.3, min: 0, max: 5, step: 1 },
-            colore_testo_sotto: { value: '#fff' },
+            colore_testo_sotto: { value: style.fontCategoryHover },
           }),
           
         testo_sopra: folder({
             testo_sopra: 'Menù',
             positione_testo_sopra: {value: {x:0, y:0.38}},
             grandezza_testo_sopra: { value: 5, min: 0, max: 30, step: 1 },
-            colore_testo_sopra: { value: '#fff' },
+            colore_testo_sopra: { value: style.fontCategoryHover },
           }),
     }))
 
  
    const [back, setBack] = useControls('Back-End', () => ({
         color: {
-            value:style.main,
+            value:"#00a2ff",
             transient:false,
             onChange: (v) => {},
         }, 
         image: folder({
-            colore_logo: style.main,
+            colore_logo: "#00a2ff",
             positione_logo: { x: 0, y: 0,},
        }),
-        text: folder({
-            text: 'Il Tuo Ristorante',
-            text_position: {x:0, y:-0.38},
-            size: { value: 4, min: 0, max: 4, step: 1 },
-            text_color: { value: '#fff' },
-          }),
     }))
 
 
     const [base, setBase] = useControls("Base", () => ({
         color: {
-            value:style.main,
+            value:"#00a2ff",
             transient:false,
             onChange: (v) => {},
         }, 
@@ -77,12 +73,14 @@ export default function Scene({logo, style, qrorder}){
             "Reset Config": resetConfig
         })
     })
+    const {config, setConfig} = useContext(CavaliereContext)
+
 
 
     return( 
         <> 
             <OrbitControls target={[object.position.x,object.position.y,6]} />
-            <PerspectiveCamera makeDefault fov={33} position={[0,0,0]} />
+            <PerspectiveCamera makeDefault fov={33} position={[-3.5,-3.5,5]} />
             <ambientLight color="white" intensity={1}/>
 
             <Grid />
@@ -95,10 +93,6 @@ export default function Scene({logo, style, qrorder}){
                 backColor={back.color} 
                 backImage={logo}
                 backImagePos={back.positione_logo}
-                backText={back.text}
-                backTextSize={back.size}
-                backTextColor={back.text_color}
-                backTextPosition={back.text_position}
                 backLogoColor={back.colore_logo}
 
                 frontHtmlScale={[0.9,0.9,0.5]}

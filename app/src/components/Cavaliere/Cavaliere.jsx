@@ -16,16 +16,12 @@ export default function Cavaliere({
         frontImagePos,
         backImagePos,
         baseImagePos,
-        backTextSize,
-        backTextColor,
         frontTextSize,
         frontTextColor,
         baseTextSize,
         baseTextColor,
         frontText,
         baseText,
-        backText,
-        backTextPosition,
         baseTextPosition,
         frontTextPosition,
         baseHtmlScale,
@@ -35,7 +31,7 @@ export default function Cavaliere({
         frontTextSopra,
         frontTextSizeSopra,
         frontTextColorSopra,
-        frontTextPositionSopra
+        frontTextPositionSopra,
     }){
     const ciottolo = useLoader(GLTFLoader, ciottolo_model)
 
@@ -46,7 +42,7 @@ export default function Cavaliere({
                     position={[0,0,0]} 
                     insidePos={[0,0,-1]}
                     rotation={[angleToRadians(90), 0, 0]}
-                    scale={[0.5,0.44,0.01]}
+                    scale={[0.5,0.44,0.002]}
                     imgPos={[baseImagePos.x, baseImagePos.y, 1]}
                     htmlRotation={[angleToRadians(0), angleToRadians(0), angleToRadians(0)]}
                     imgParentScale={[baseHtmlScale[0], baseHtmlScale[1]]}
@@ -58,11 +54,11 @@ export default function Cavaliere({
                     textPosition={[baseTextPosition.x, baseTextPosition.y, -1]}
                 />
                 <CavaliereLayer 
-                    position={[0,0.32,-0.111]} 
-                    insidePos={[0,-0.03,1]}
+                    position={[0,0.3155,-0.111]} 
+                    insidePos={[0,0,1]}
                     rotation={[angleToRadians(19.45), 0, 0]} 
-                    scale={[0.5,0.68,0.01]}
-                    imgPos={[frontImagePos.x, frontImagePos.y, -1.05]}
+                    scale={[0.5,0.663,0.002]}
+                    imgPos={[frontImagePos.x, frontImagePos.y, -1.6]}
                     htmlRotation={[angleToRadians(0), angleToRadians(180), angleToRadians(0)]}
                     imgParentScale={[frontHtmlScale[0], frontHtmlScale[1], frontHtmlScale[2]]}
                     color={frontColor}
@@ -80,28 +76,25 @@ export default function Cavaliere({
                     textColorSopra={frontTextColorSopra}
                     paddingColor={"white"}
                     imgScale={[0.01,0.01]}
-                    paddingPos={[0,0,-0.6]}
+                    paddingPos={[0,0,-0.7]}
                     paddingSize={[1,0.72]}
                     paddingDir={[0,angleToRadians(180),0]}
                     dashedPos={[-0.26, -0.45, -0.5]}
                 />
                 <CavaliereLayer 
-                    position={[0,0.32,0.111]}
-                    insidePos={[0,-0.03,-1]} 
+                    position={[0,0.3155,0.111]}
+                    insidePos={[0,0,-1]} 
                     rotation={[angleToRadians(-19.45), 0, 0]} 
-                    scale={[0.5,0.68,0.01]}
+                    scale={[0.5,0.663,0.002]}
                     imgScale={[backHtmlScale[0], backHtmlScale[1]]}
                     imgPos={[backImagePos.x, backImagePos.y, 1]}
                     htmlRotation={[angleToRadians(0), angleToRadians(0), angleToRadians(0)]}
                     htmlScale={[backHtmlScale[0], backHtmlScale[1]]}
                     color={backColor}
                     image={backImage}
-                    text={backText}
-                    textSize={backTextSize}
-                    textColor={backTextColor}
-                    textPosition={[backTextPosition.x, backTextPosition.y, 0.6]}   
                     paddingSize={[0.7, 0.7]}  
                 />
+
                 <primitive object={ciottolo.scene} scale={[0.18,0.18,0.18]} position={[0,0.06,0]}/>
             </group>
         </>
