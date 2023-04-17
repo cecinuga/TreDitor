@@ -23,8 +23,19 @@ export default function App() {
     frontColor: "#00a2ff",
     backColor: "#00a2ff",
     baseColor: "#00a2ff",
+
     frontTextUp: "Menù",
+    frontTextUpPos: {x:0, y:0.38},
+    frontTextUpSize: 5,
+    frontTextUpColor: "white",
+    
     frontTextDown:  "Menumal.it/test",
+    frontTextDownPos: {x:0, y:-0.38},
+    frontTextDownSize: 2.3,
+    frontTextDownColor: "white",
+
+    backLogoColor: "#00a2ff",
+    backLogoPos: { x: 0, y: 0,},
   })
 
 

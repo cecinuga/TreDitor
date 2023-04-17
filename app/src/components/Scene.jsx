@@ -32,7 +32,7 @@ export default function Scene({logo, style, qrorder}){
           
         testo_sopra: folder({
             testo_sopra: 'Menù',
-            positione_testo_sopra: {value: {x:0, y:0.38}},
+            positione_testo_sopra: { value: {x:0, y:0.38}},
             grandezza_testo_sopra: { value: 5, min: 0, max: 30, step: 1 },
             colore_testo_sopra: { value: style.fontCategoryHover },
           }),
