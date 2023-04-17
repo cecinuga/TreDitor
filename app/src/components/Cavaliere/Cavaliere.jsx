@@ -32,13 +32,18 @@ export default function Cavaliere({
         frontTextSizeSopra,
         frontTextColorSopra,
         frontTextPositionSopra,
+        rotation,
+        isTexture,
+        currentRef
     }){
     const ciottolo = useLoader(GLTFLoader, ciottolo_model)
 
     return(
         <>
-            <group position={meshPos} scale={meshScale}>
-                <CavaliereLayer 
+            <group ref={currentRef} position={meshPos} scale={meshScale} rotation={rotation}>
+                <CavaliereLayer
+                    id="1"
+                    isTexture={isTexture} 
                     position={[0,0,0]} 
                     insidePos={[0,0,-1]}
                     rotation={[angleToRadians(90), 0, 0]}
@@ -53,7 +58,9 @@ export default function Cavaliere({
                     textColor={baseTextColor}
                     textPosition={[baseTextPosition.x, baseTextPosition.y, -1]}
                 />
-                <CavaliereLayer 
+                <CavaliereLayer
+                    id="2"
+                    isTexture={isTexture} 
                     position={[0,0.3155,-0.111]} 
                     insidePos={[0,0,1]}
                     rotation={[angleToRadians(19.45), 0, 0]} 
@@ -81,7 +88,9 @@ export default function Cavaliere({
                     paddingDir={[0,angleToRadians(180),0]}
                     dashedPos={[-0.26, -0.45, -0.5]}
                 />
-                <CavaliereLayer 
+                <CavaliereLayer
+                    id="3"
+                    isTexture={isTexture} 
                     position={[0,0.3155,0.111]}
                     insidePos={[0,0,-1]} 
                     rotation={[angleToRadians(-19.45), 0, 0]} 

@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, Suspense, createContext, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, Suspense, createContext, useContext, useEffect, useState } from 'react';
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Canvas} from "@react-three/fiber"
@@ -14,15 +14,17 @@ import { Api } from './lib/api';
 import { CavaliereContext } from './components/Cavaliere/CavaliereContext';
 import { getStyle } from './lib/lib';
 import Page from './components/Page';
+import StampaPage from './components/StampaPage';
 
 export type Stile = {
   fontCategoryHover: string 
 }
 
 export default function App() {
+  const {config} = useContext(CavaliereContext)
 
   const {data, isLoading: isLoadingStile} = useQuery<Stile>("stiledemo", async ()  => {
-    const stile = await getStyle("test")
+    const stile = await getStyle(config.job)
     return {fontCategoryHover: stile.fontCategoryHover}
   })
 
@@ -35,6 +37,7 @@ export default function App() {
             <Routes>
               <Route path='/' element={<EditorPage stile={data!}/>}/>
               <Route path="/demo" element={<DemoPage stile={data!}/>}/>
+              <Route path="/stampa" element={<StampaPage logo={`https://menumal.it/data/img/logo-${config.job}.png`} />}/>
             </Routes>
           </Page>
         </Container>

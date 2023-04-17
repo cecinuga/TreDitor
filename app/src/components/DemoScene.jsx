@@ -25,6 +25,7 @@ export default function DemoScene({logo, qr, style}){
         <ambientLight color="white" />
 
         <Cavaliere 
+            isTexture={true}
             meshPos={cavalierePos} 
             meshScale={[0.2,0.2,0.2]}
             
@@ -58,6 +59,7 @@ export default function DemoScene({logo, qr, style}){
         />
 
         <Cavaliere 
+            isTexture={true}
             meshPos={[0.38,0.75,0]} 
             meshScale={[0.2,0.2,0.2]}
             

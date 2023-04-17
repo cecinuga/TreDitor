@@ -88,6 +88,7 @@ export default function Scene({logo, style}){
             <Grid />
 
             <Cavaliere 
+                isTexture={true}
                 meshPos={[object.position.x,object.position.y,6]} 
                 meshScale={[1,1,1]}
                 

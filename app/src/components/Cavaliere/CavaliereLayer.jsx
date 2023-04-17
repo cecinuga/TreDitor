@@ -33,6 +33,8 @@ export default function CavaliereLayer({position
     ,paddingPos=[0,0,0]
     ,paddingDir
     ,dashedPos
+    ,isTexture
+    ,id
 }){
     const paddingRef = useRef(null)
     const layerRef = useRef(null)
@@ -44,7 +46,7 @@ export default function CavaliereLayer({position
             <group>
                 <mesh ref={layerRef}>
                     <boxGeometry />
-                    <meshPhongMaterial color={color} map={texturedietro}/>
+                    <meshPhongMaterial color={color} map={isTexture?texturedietro:undefined}/>
                     <Text fontSize={textSize} color={textColor} rotation={textRotation} font={rocaOne} position={textPosition} scale={[0.02,0.02,0.02]}>{text}</Text>
                     <Text fontSize={textSizeSopra} color={textColorSopra} rotation={textRotationSopra} font={rocaOne} position={textPositionSopra} scale={[0.02,0.02,0.02]}>{textSopra}</Text>
                 </mesh>
@@ -61,7 +63,7 @@ export default function CavaliereLayer({position
             </group>
             <mesh scale={[1, 1, 0.9]} position={insidePos} >
                 <boxGeometry />
-                <meshStandardMaterial color={"white"} map={texture}/>
+                <meshStandardMaterial color={"white"} map={isTexture?texture:undefined}/>
             </mesh>
             {dashedPos && 
                 <group position={dashedPos}>
