@@ -39,11 +39,6 @@ export default function CavaliereLayer({position
     const texture = useTexture(cartatexture)
     const texturedietro = useTexture(cartatexturedietro)
 
-    useFrame(()=>{
-        console.log(paddingRef)
-    })
-
-
     return(
         <group scale={scale} position={position} rotation={rotation} castShadow>
             <group>

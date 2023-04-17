@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, Suspense, createContext, useState } from 'react';
+import { Dispatch, SetStateAction, Suspense, createContext, useEffect, useState } from 'react';
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Canvas} from "@react-three/fiber"
@@ -12,53 +12,33 @@ import Header from './components/Header';
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 import { Api } from './lib/api';
 import { CavaliereContext } from './components/Cavaliere/CavaliereContext';
+import { getStyle } from './lib/lib';
+import Page from './components/Page';
 
-declare const baseUrl: string;
-const queryClient = new QueryClient()
+export type Stile = {
+  fontCategoryHover: string 
+}
 
 export default function App() {
 
-  const [config, setConfig] = useState({
-    job:"test",
-    frontColor: "#00a2ff",
-    backColor: "#00a2ff",
-    baseColor: "#00a2ff",
-
-    frontTextUp: "Menù",
-    frontTextUpPos: {x:0, y:0.38},
-    frontTextUpSize: 5,
-    frontTextUpColor: "white",
-    
-    frontTextDown:  "Menumal.it/test",
-    frontTextDownPos: {x:0, y:-0.38},
-    frontTextDownSize: 2.3,
-    frontTextDownColor: "white",
-
-    backLogoColor: "#00a2ff",
-    backLogoPos: { x: 0, y: 0,},
+  const {data, isLoading: isLoadingStile} = useQuery<Stile>("stiledemo", async ()  => {
+    const stile = await getStyle("test")
+    return {fontCategoryHover: stile.fontCategoryHover}
   })
-
 
   return (
     <>
-      <CavaliereContext.Provider value={{config, setConfig}} >
-        <BrowserRouter basename={typeof baseUrl === "undefined" ? "/" : baseUrl}>
-         <QueryClientProvider client={queryClient}>
-            <Container fluid>
-              <Header>TreDitor</Header>
-              <Routes>
-                <Route path='/' element={
-                  <Suspense fallback={null}>
-                    <EditorPage />
-                  </Suspense>
-                  }>
-                </Route>
-                <Route path='/demo' element={<DemoPage />}></Route>
-              </Routes>
-            </Container>
-          </QueryClientProvider>
-        </BrowserRouter>
-      </CavaliereContext.Provider>
+      {!isLoadingStile && 
+        <Container fluid>
+          <Header>TreDitor</Header>
+          <Page>
+            <Routes>
+              <Route path='/' element={<EditorPage stile={data!}/>}/>
+              <Route path="/demo" element={<DemoPage stile={data!}/>}/>
+            </Routes>
+          </Page>
+        </Container>
+      }
     </>
   )
 }

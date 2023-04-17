@@ -11,9 +11,14 @@ export type CavaliereContextType = {
         frontTextDownPos: {x:number, y:number},
         frontTextDownSize: number,
         frontTextDownColor: string,
+        frontTextUpSize: number,
+        frontTextUpPos: {x:number, y:number},
+        frontTextUpColor: string,
+        frontImagePos: {x:number, y:number},
 
         backLogoColor: string,
         backLogoPos: { x: number, y: number,},
+        qr: string,
     },
     setConfig: Dispatch<SetStateAction<{ 
         job: string
@@ -25,12 +30,14 @@ export type CavaliereContextType = {
         frontTextDownPos: {x:number, y:number},
         frontTextDownSize: number,
         frontTextDownColor: string,
+        frontImagePos: {x:number, y:number},
 
         backLogoColor: string,
         backLogoPos: { x: number, y: number,},
         frontTextUpPos: {x:number, y:number},
         frontTextUpSize: number,
         frontTextUpColor: string,
+        qr: string,
     }>>
 }
   
@@ -46,9 +53,13 @@ export const CavaliereContext = createContext<CavaliereContextType>(
         frontTextDownPos: {x:0, y:0},
         frontTextDownSize: 0,
         frontTextDownColor: "",
-
+        frontTextUpSize: 0,
+        frontTextUpPos: {x:0, y:0},
+        frontTextUpColor: "",
+        frontImagePos: {x:0, y:0},
         backLogoColor: "",
         backLogoPos: { x: 0, y: 0,},
+        qr: ""
     },
     setConfig: () => {}
 })
