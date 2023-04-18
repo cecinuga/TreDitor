@@ -4,7 +4,7 @@ import { angleToRadians, percent } from "../../lib/lib"
 import { createPortal } from "react-dom"
 import { useFrame, useLoader, useThree } from "@react-three/fiber"
 import {Image} from './Image/Image'
-import rocaOne from "../../fonts/roca/RocaOne-Bl.woff"
+import rocaOne from "../../fonts/roca/RocaTwoBold.ttf"
 import cartatexture from "./models/cartatexture.jpg"
 import cartatexturedietro from "./models/cartatexturedietro.jpeg"
 
@@ -42,7 +42,7 @@ export default function CavaliereLayer({position
     const texturedietro = useTexture(cartatexturedietro)
 
     return(
-        <group scale={scale} position={position} rotation={rotation} castShadow>
+        <group scale={scale} position={position} rotation={rotation} castShadow receiveShadow>
             <group>
                 <mesh ref={layerRef}>
                     <boxGeometry />

@@ -23,11 +23,24 @@ export default function DemoScene({logo, qr, style}){
         <OrbitControls target={cavalierePos} maxPolarAngle={angleToRadians(88)} maxDistance={5}/>
         <PerspectiveCamera makeDefault fov={33} position={[-4, 4, -5]} />
         <ambientLight color="white" />
+        <spotLight intensity={1} color="red" position={[-1,0.5,0]} castShadow/>
+        <spotLight intensity={1} color={config.frontColor} position={[0,2,0]} castShadow/>
+
+        <primitive object={tableModel.scene} scale={[0.001,0.001,0.001]} position={tablePos} castShadow receiveShadow/>
+        
+        <primitive object={groundModel.scene} position={[0,-0.8,0.35]} scale={[3,3,3]} castShadow receiveShadow/>
+        <Environment 
+            files={resturant} 
+            near={5}
+            far={1000}
+            resolution={256}
+            background
+        />
 
         <Cavaliere 
             isTexture={true}
             meshPos={cavalierePos} 
-            meshScale={[0.2,0.2,0.2]}
+            meshScale={[0.15, 0.15, 0.15]}
             
             backHtmlScale={[1.8,1]}
             backColor={config.backColor} 
@@ -61,7 +74,7 @@ export default function DemoScene({logo, qr, style}){
         <Cavaliere 
             isTexture={true}
             meshPos={[0.38,0.75,0]} 
-            meshScale={[0.2,0.2,0.2]}
+            meshScale={[0.15, 0.15, 0.15]}
             
             backHtmlScale={[1.8,1]}
             backColor={config.backColor} 
@@ -92,16 +105,6 @@ export default function DemoScene({logo, qr, style}){
             baseTextPosition={""}
         />
 
-        <primitive object={tableModel.scene} scale={[0.001,0.001,0.001]} position={tablePos}/>
-        
-        <primitive object={groundModel.scene} position={[0,-0.8,0.35]} scale={[3,3,3]}/>
-        <Environment 
-            files={resturant} 
-            near={5}
-            far={1000}
-            resolution={256}
-            background
-        />
     </>
     )
 }

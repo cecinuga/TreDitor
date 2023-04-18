@@ -26,32 +26,8 @@ export default function Header(props: HeaderProps){
         setConfig((c)=>({...c, qr: `https://api.qrserver.com/v1/create-qr-code/?size=500x500&format=png&color=000000&bgcolor=ffffff&data=menumal.it/${config.job}`}))
     }
 
-    const stampa = async () => {
-        /*const dataUrl = document.querySelector(".canvas canvas")?.toDataURL("image/png");
-
-        fetch(dataUrl, {headers: { "Content-Type": "image/png" }}).then(response => {
-            response.blob().then(blob => {
-                console.log(blob)
-                const fileURL = window.URL.createObjectURL(blob);
-                const link = document.createElement("a");
-                link.download="cavalierino.png"
-                link.href = fileURL
-                link.click()
-            })
-        })*/
-
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", document.querySelector(".canvas canvas"), true)
-        xhr.responseType = "arraybuffer";
-        xhr.onload = function(e){
-            if(this.status == 200){
-                let blob = new Blob([this.response], {type: "image/png"});
-                let link = document.createElement("a");
-                link.href = window.URL.createObjectURL(blob)
-                link.download = "cavalierino.png"
-            }
-        }
-
+    const stampa = () => {
+        
     }
 
     return (

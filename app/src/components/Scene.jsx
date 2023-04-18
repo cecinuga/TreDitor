@@ -45,7 +45,7 @@ export default function Scene({logo, style}){
         color: {
             value: config.backColor,
             transient:false,
-            onChange: (v) => {},
+            onChange: (v) => setConfig((c)=>({...c, backColor: v})),
         }, 
         image: folder({
             colore_logo: {value:config.backLogoColor, onChange: (v)=>setConfig((c)=>({...c, backLogoColor:v})), transient: false},
@@ -83,7 +83,8 @@ export default function Scene({logo, style}){
         <> 
             <OrbitControls target={[object.position.x,object.position.y,6]} />
             <PerspectiveCamera makeDefault fov={33} position={[-3.5,-3.5,5]} />
-            <ambientLight color="white" intensity={1}/>
+            <ambientLight color="white" intensity={1} castShadow/>
+            <directionalLight color="white" intensity={1} castShadow />
 
             <Grid />
 

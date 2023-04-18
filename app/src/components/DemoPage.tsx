@@ -17,7 +17,7 @@ export default function DemoPage(props: DemoProps){
     return(
         <>
             <Suspense fallback={null}>
-                <Canvas className="h-800px">
+                <Canvas className="h-800px" shadows>
                     <DemoScene 
                         logo={`https://menumal.it/data/img/logo-${config.job}.png`} 
                         qr={`https://api.qrserver.com/v1/create-qr-code/?size=500x500&format=png&color=000000&bgcolor=ffffff&data=menumal.it/${config.job}`}
