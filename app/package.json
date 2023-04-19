@@ -19,13 +19,15 @@
     "canvas-to-png": "^0.0.3",
     "file-saver": "^2.0.5",
     "firebase": "^9.19.1",
+    "html2canvas": "^1.0.0",
+    "jspdf": "^2.5.1",
     "leva": "^0.9.34",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",
+    "react-screenshots": "^0.5.19",
     "three": "^0.151.3",
-    "use-react-screenshot": "^3.0.0",
     "zustand": "^4.3.7"
   },
   "devDependencies": {

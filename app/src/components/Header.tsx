@@ -4,6 +4,8 @@ import { Button } from "@mui/material";
 import { useLocation, useNavigate } from "react-router";
 import { CavaliereContext } from "./Cavaliere/CavaliereContext";
 import { saveAs } from "file-saver";
+import jsPDF from "jspdf";
+import { stampa } from "../lib/lib_";
 
 export type HeaderProps = {
     children?: ReactElement | string;
@@ -26,9 +28,6 @@ export default function Header(props: HeaderProps){
         setConfig((c)=>({...c, qr: `https://api.qrserver.com/v1/create-qr-code/?size=500x500&format=png&color=000000&bgcolor=ffffff&data=menumal.it/${config.job}`}))
     }
 
-    const stampa = () => {
-        
-    }
 
     return (
         <Row className="bg-gradient-primary border-b-2-white">
