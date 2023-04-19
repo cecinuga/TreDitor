@@ -4,7 +4,6 @@ import { Button } from "@mui/material";
 import { useLocation, useNavigate } from "react-router";
 import { CavaliereContext } from "./Cavaliere/CavaliereContext";
 import { saveAs } from "file-saver";
-import jsPDF from "jspdf";
 import { stampa } from "../lib/lib_";
 
 export type HeaderProps = {
@@ -42,7 +41,7 @@ export default function Header(props: HeaderProps){
                 <Button href="" onClick={()=>navigate("/")} variant="contained" color="success" className='font-primary mx-3'>Editor</Button>
                 <Button href="" onClick={()=>navigate("/demo")} variant="contained" color="error" className="font-primary">Demo</Button>
                 {!state || state.stato!="stampa"?<Button href="" onClick={()=>navigate("/stampa", {state: {stato: "stampa"}})} variant="contained" className="font-primary mx-3">Stampa</Button>: ""}
-                {state && state.stato=="stampa"?<Button href="" onClick={()=>stampa()} variant="contained" color="secondary" className="font-primary mx-3">Manda In Stampa</Button>:""}
+                {state && state.stato=="stampa"?<Button href="" onClick={async ()=>await stampa(config.job)} variant="contained" color="secondary" className="font-primary mx-3">Manda In Stampa</Button>:""}
             </Col>
         </Row>
     );
