@@ -8,17 +8,16 @@ import CavaliereStirato from "./Cavaliere/CavaliereStirato";
 export default function StampaScene({logo}) {
     const {config, setConfig} = useContext(CavaliereContext)
     const cavaliereRef = useRef(null)
-    const [xRotation, setXRotation] = useState(12)
+    const [xRotation, setXRotation] = useState(0)
     const [yRotation, setYRotation] = useState(0)
-    const {gl} = useThree()
     
     return (
         <>
             <ambientLight color={"white"}/>
             <CavaliereStirato
                 currentRef={cavaliereRef}
-                meshPos={[0,-1.3,0]} 
-                meshScale={[5,5,5]}
+                meshPos={[0,-1.75,0]} 
+                meshScale={[4.05,4.05,4.05]}
                 rotation={[angleToRadians(xRotation), angleToRadians(yRotation), 0]}
                 
                 backHtmlScale={[1.8,1]}

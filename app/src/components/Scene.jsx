@@ -69,16 +69,6 @@ export default function Scene({logo, style}){
         
     }
 
-    useControls({
-        "Azioni": buttonGroup({
-            "Save Config": saveConfig,
-            "Reset Config": resetConfig
-        })
-    })
-
-    console.log(front)
-
-
     return( 
         <> 
             <OrbitControls target={[object.position.x,object.position.y,6]} />
