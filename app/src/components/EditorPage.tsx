@@ -1,14 +1,10 @@
-import { Canvas, useThree } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { Suspense, useContext } from "react";
 import Scene from "./Scene";
 import { Leva, LevaPanel } from "leva";
-import { Button } from '@mui/material';
-import { useQuery } from "react-query";
-import { Api } from "../lib/api";
-import { generatePath } from "react-router";
 import { CavaliereContext } from "./Cavaliere/CavaliereContext";
-import { getStyle } from "../lib/lib";
 import { Stile } from "../App";
+import Loader from "./Loader";
 
 type EditorProps = {
     stile: Stile
@@ -19,7 +15,7 @@ export default function EditorPage(props: EditorProps){
 
     return(
         <>
-                <Suspense fallback={null}>
+                <Suspense fallback={<Loader>Prendendo gli strumenti...</Loader>}>
                     <Canvas shadows className="h-800px">
                         <Scene 
                             logo={`https://menumal.it/data/img/logo-${config.job}.png`} 

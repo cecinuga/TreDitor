@@ -6,6 +6,7 @@ import { CavaliereContext } from "./Cavaliere/CavaliereContext"
 import { useQuery } from "react-query"
 import { getStyle } from "../lib/lib"
 import { Stile } from "../App"
+import Loader from "./Loader"
 
 type DemoProps = {
     stile: Stile
@@ -16,7 +17,7 @@ export default function DemoPage(props: DemoProps){
 
     return(
         <>
-            <Suspense fallback={null}>
+            <Suspense fallback={<Loader>Sto aprendo la porta del ristorante...</Loader>}>
                 <Canvas className="h-800px" shadows>
                     <DemoScene 
                         logo={`https://menumal.it/data/img/logo-${config.job}.png`} 

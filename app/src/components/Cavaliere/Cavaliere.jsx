@@ -104,7 +104,7 @@ export default function Cavaliere({
                     paddingSize={[0.7, 0.7]}  
                 />
 
-                <primitive object={ciottolo.scene} scale={[0.18,0.18,0.18]} position={[0,0.06,0]}/>
+                <primitive object={ciottolo.scene} rotation={[angleToRadians(0), angleToRadians(0), angleToRadians(0)]} scale={[0.4,0.4,0.4]} position={[0,0.047,0]}/>
             </group>
         </>
     )

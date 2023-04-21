@@ -1,19 +1,29 @@
+@font-face {
+    font-family: 'roca';
+    src: url('./fonts/roca/RocaTwoBold.ttf');
+}
+
+
 .font-primary-{font-family: 'Bebas Neue', cursive !important;}
 .font-primary{font-family: 'Josefin Sans', sans-serif !important;}
 .font-secondary{font-family: 'Stick No Bills', sans-serif !important;}
 .font-third{font-family: 'Fasthand', cursive!important;}
+.font-roca{font-family: "roca";}
 .font-italic{font-style: italic !important}
+
 
 .border-b-2-white{border-bottom: 2px solid white}
 .h-800px{height:100vh!important}
 
 .leva-c-kWgxhW-bCBHqk-fill-false {
     position: fixed;
-    top: 11px;
-    left: 22%!important;
+    top: 15px!important;
+    left: 24.55%!important;
     z-index: 1000;
 }
 
 .bg-gray{background-color: rgb(146, 205, 143);}
 .pr-0{padding-right: 0!important;}
 .font-bold{font-weight: 600;}
+
+.mt-10{margin-top: 10rem;}

@@ -43,7 +43,7 @@ export default function Header(props: HeaderProps){
         <>
             <Row className="bg-gradient-primary border-b-2-white">
                 <Col xs={4} className="text-center text-white position-relative fs-2 font-semibold font-secondary color-primary pt-3">
-                    <div className="d-inline-block fs-2 font-primary">MenuMal</div><div className="d-inline-block mx-3 fs-5">x</div>  <div className="d-inline-block fs-2 font-secondary">Drop<div className="d-inline-block font-third color-secondary-2">Link</div></div>                
+                    <div className="d-inline-block fs-2 font-roca">MenuMal</div><div className="d-inline-block mx-3 fs-5">x</div>  <div className="d-inline-block fs-2 font-secondary">Drop<div className="d-inline-block font-third color-secondary-2">Link</div></div>                
                 </Col>
                 <Col xl={4} className="text-center text-white fs-1 position-relative font-semibold font-secondary color-primary pt-2" >
                     {props.children}

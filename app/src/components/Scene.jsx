@@ -4,6 +4,7 @@ import { useControls, folder, buttonGroup } from 'leva';
 import Grid from './Cavaliere/Grid';
 import { useContext, useEffect } from 'react';
 import { CavaliereContext } from './Cavaliere/CavaliereContext';
+import { angleToRadians } from '../lib/lib';
 
 export default function Scene({logo, style}){
     const {config, setConfig} = useContext(CavaliereContext)
@@ -25,18 +26,17 @@ export default function Scene({logo, style}){
             transient:false,
             onChange: (v) => setConfig((c)=>({...c, frontColor: v})),
         }, 
-        testo_sotto: folder({
-            testo_sotto: {value:config.frontTextDown},
-            posizione_testo_sotto: {value: config.frontTextDownPos, onChange:(v)=>setConfig((c)=>({...c, frontTextDownPos:v})), transient: false},
-            grandezza_testo_sotto: { value: config.frontTextDownSize, min: 0, max: 5, step: 1, onChange:(v)=>setConfig((c)=>({...c, frontTextDownSize:v} )), transient: false},
-            colore_testo_sotto: { value: style.fontCategoryHover, onChange:(v)=>setConfig((c)=>({...c, frontTextDownColor:v} )) , transient: false},
-          }),
-          
         testo_sopra: folder({
-            testo_sopra: config.frontTextUp,
+            testo_sopra: {value: config.frontTextUp, onChange:(v)=>setConfig((c)=>({...c, frontTextUp:v})), transient: false},
             positione_testo_sopra: { value: config.frontTextUpPos, onChange:(v)=>setConfig((c)=>({...c, frontTextUpPos:v})), transient: false },
             grandezza_testo_sopra: { value: config.frontTextUpSize, min: 0, max: 30, step: 1, onChange:(v)=>setConfig((c)=>({...c, frontTextUpSize:v})), transient: false },
             colore_testo_sopra: { value: style.fontCategoryHover, onChange:(v)=>setConfig((c)=>({...c, frontTextUpColor:v})), transient: false },
+          }),
+        testo_sotto: folder({
+            testo_sotto: {value:config.frontTextDown, onChange:(v)=>setConfig((c)=>({...c, frontTextDown:v})), transient: false},
+            posizione_testo_sotto: {value: config.frontTextDownPos, onChange:(v)=>setConfig((c)=>({...c, frontTextDownPos:v})), transient: false},
+            grandezza_testo_sotto: { value: config.frontTextDownSize, min: 0, max: 5, step: 1, onChange:(v)=>setConfig((c)=>({...c, frontTextDownSize:v} )), transient: false},
+            colore_testo_sotto: { value: style.fontCategoryHover, onChange:(v)=>setConfig((c)=>({...c, frontTextDownColor:v} )) , transient: false},
           }),
     }))
 
@@ -62,16 +62,9 @@ export default function Scene({logo, style}){
         }, 
     }))
 
-    const saveConfig = () => {
-        
-    }
-    const resetConfig = () => {
-        
-    }
-
     return( 
         <> 
-            <OrbitControls target={[object.position.x,object.position.y,6]} />
+            <OrbitControls target={[object.position.x,object.position.y,6]} maxDistance={270} maxPolarAngle={angleToRadians(180)} />
             <PerspectiveCamera makeDefault fov={33} position={[-3.5,-3.5,5]} />
             <ambientLight color="white" intensity={1} castShadow/>
             <directionalLight color="white" intensity={1} castShadow />
