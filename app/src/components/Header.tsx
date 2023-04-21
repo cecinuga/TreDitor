@@ -52,14 +52,14 @@ export default function Header(props: HeaderProps){
                     <Button onClick={switchQr} className="text-white mx-2">{qrState}</Button>
                     <Button href="" onClick={()=>navigate("/")} variant="contained" color="success" className='font-primary mx-3'>Editor</Button>
                     <Button href="" onClick={()=>navigate("/demo")} variant="contained" color="error" className="font-primary">Demo</Button>
-                    {!state || state.stato!="stampa"?<Button href="" onClick={()=>navigate("/stampa", {state: {stato: "stampa"}})} variant="contained" className="font-primary mx-3">Stampa</Button>: ""}
+                    {!state || state.stato!="stampa"?<Button href="" onClick={()=>navigate("/stampa", {state: {stato: "stampa"}})} variant="contained" className="font-primary mx-3">Tipografia</Button>: ""}
                     {state && state.stato=="stampa"?<Button href="" onClick={async ()=>setOpen(true)} variant="contained" color="secondary" className="font-primary mx-3">Manda In Stampa</Button>:""}
                 </Col>
             </Row>
             <Dialog onClose={closeDialog} open={open}>
                 <DialogTitle className="font-primary text-center position-relative overflow-hidden">
                     Quanti pezzi vuoi stampare? 
-                    <Button onClick={closeDialog} className="position-absolute top-0 left-0"><AiOutlineClose size={36} fill={"red"} /></Button></DialogTitle>
+                    <Button onClick={closeDialog} className="position-absolute top-0 left-0"><AiOutlineClose size={36} color={"red"} /></Button></DialogTitle>
                 <div>
                     <Col xs={6} className="d-inline-block"><input type="number" className="p-3 border-0 bg-gray text-white font-bold font-primary" id="pezzi" value={pezzi} onChange={(e)=>setPezzi(Number(e.currentTarget.value))} /></Col>
                     <Col xs={6} className="text-center p-4 d-inline-block">
