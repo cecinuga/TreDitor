@@ -48,7 +48,7 @@ export default function Header(props: HeaderProps){
                 <Col xl={4} className="text-center text-white fs-1 position-relative font-semibold font-secondary color-primary pt-2" >
                     {props.children}
                 </Col>
-                <Col xl={4} className="pt-3 text-left">
+                <Col xl={4} className="pt-3 text-right">
                     <Button onClick={switchQr} className="text-white mx-2">{qrState}</Button>
                     <Button href="" onClick={()=>navigate("/")} variant="contained" color="success" className='font-primary mx-3'>Editor</Button>
                     <Button href="" onClick={()=>navigate("/demo")} variant="contained" color="error" className="font-primary">Demo</Button>

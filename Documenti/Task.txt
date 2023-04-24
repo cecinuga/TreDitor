@@ -4,9 +4,10 @@
 22) Pulsate con SalvaStampa(stirare il cavalierino)
 23) Ricalibrazione totale assi leva
 
-24) inserire ombre in demo mode
-25) stirare e stampare il cavalierino
-28) inserire loader
+27) contenuti stretchati sul cavalierino
+28) cambiare sasso
+29) 
+
 
 scritte o sono bianche o sono nere in base allo sfondo
 

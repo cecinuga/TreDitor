@@ -16,7 +16,7 @@ export default function StampaScene({logo}) {
             <ambientLight color={"white"}/>
             <CavaliereStirato
                 currentRef={cavaliereRef}
-                meshPos={[0,-1.75,0]} 
+                meshPos={[0,-1.5,0]} 
                 meshScale={[4.05,4.05,4.05]}
                 rotation={[angleToRadians(xRotation), angleToRadians(yRotation), 0]}
                 
