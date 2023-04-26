@@ -7,7 +7,9 @@ export const stampa = async (job, pezzi) => {
     let canvas = document.querySelector(".canvas canvas");
     let url = await canvas.toDataURL("image/png", 1.0);    
 
-    let pdf = new jsPDF()
-    pdf.addImage(url, "JPEG", 50, 50, 0, 0)
+    let pdf = new jsPDF({
+        format: [500, 1350]
+    })
+    pdf.addImage(url, "JPEG", 18, 20, 140, 0)
     pdf.save(`cavalierino_${job}.pdf`)
 }
