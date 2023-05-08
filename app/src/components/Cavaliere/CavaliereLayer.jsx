@@ -47,8 +47,8 @@ export default function CavaliereLayer({position
                 <mesh ref={layerRef}>
                     <boxGeometry />
                     <meshPhongMaterial color={color} map={isTexture?texturedietro:undefined}/>
-                    <Text fontSize={textSize} color={textColor} rotation={textRotation} font={rocaOne} position={textPosition} scale={[0.02,0.02,0.02]}>{text}</Text>
-                    <Text fontSize={textSizeSopra} color={textColorSopra} rotation={textRotationSopra} font={rocaOne} position={textPositionSopra} scale={[0.02,0.02,0.02]}>{textSopra}</Text>
+                    <Text fontSize={textSize} color={textColor} rotation={textRotation} font={rocaOne} position={textPosition} scale={[0.025,0.02,0.02]}>{text}</Text>
+                    <Text fontSize={textSizeSopra} color={textColorSopra} rotation={textRotationSopra} font={rocaOne} position={textPositionSopra} scale={[0.025,0.02,0.02]}>{textSopra}</Text>
                 </mesh>
                 {image && 
                     <group scale={imgParentScale}>
